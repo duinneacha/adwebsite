@@ -5,7 +5,7 @@
 <nav class="nav">
   <div class="container">
     <div class="brand">
-      <img src="/adlogo.png" alt="AD Logo" class="logo" />
+      <img src="/adwebsite/adlogo.png" alt="AD Logo" class="logo" />
       <span>AD</span>
     </div>
     <ul class="links">
@@ -20,7 +20,7 @@
 <main>
   <section id="home" class="section">
     <div class="hero">
-      <img src="/adlogo.png" alt="AD Logo" class="hero-logo" />
+      <img src="/adwebsite/adlogo.png" alt="AD Logo" class="hero-logo" />
       <h1>Welcome to AD</h1>
       <p class="slogan">Your Local Partner for Smarter Tech</p>
       <p>Explore my services, recent projects, and get in touch.</p>
@@ -78,7 +78,10 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">
-          <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
+          <img
+            src="/adwebsite/templecurraheen-pic.jpg"
+            alt="Templecurraheen Graveyard"
+          />
         </div>
         <h3>Templecurraheen Graveyard Website</h3>
         <p class="project-subtitle">Digital Heritage Documentation Project</p>
@@ -113,7 +116,10 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
+          <img
+            src="/adwebsite/ballinacurra-pic.jpeg"
+            alt="Old Ballinacurra Graveyard"
+          />
         </div>
         <h3>Old Ballinacurra Graveyard Website</h3>
         <p class="project-subtitle">Community Heritage Memorial Site</p>
