@@ -75,7 +75,69 @@
 
   <section id="projects" class="section">
     <h2>Projects</h2>
-    <p>Project highlights will appear here.</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
+        </div>
+        <h3>Templecurraheen Graveyard Website</h3>
+        <p class="project-subtitle">Digital Heritage Documentation Project</p>
+        <p class="project-description">
+          A comprehensive digital archive documenting the historic
+          Templecurraheen Graveyard in Carrigtwohill, Co. Cork. This project
+          preserves centuries of local history through burial records,
+          historical photographs, and genealogical resources. Features
+          interactive maps, searchable burial lists, and a complete historical
+          archive accessible to researchers, family members, and the local
+          community.
+        </p>
+        <div class="project-links">
+          <a
+            href="https://duinneacha.github.io/templecurraheen-website/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            View Live Site
+          </a>
+          <a
+            href="https://github.com/duinneacha/templecurraheen-website"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
+        </div>
+        <h3>Old Ballinacurra Graveyard Website</h3>
+        <p class="project-subtitle">Community Heritage Memorial Site</p>
+        <p class="project-description">
+          A dedicated memorial website for Old Ballinacurra Graveyard, featuring
+          comprehensive grave records, historical features, and community
+          stories. This project honors the memory of Frankie Devlin and
+          preserves the heritage of Ballinacurra through digital documentation.
+          Includes interactive grave listings, historical features, and
+          community dedication pages that connect families with their ancestral
+          history.
+        </p>
+        <div class="project-links">
+          <a
+            href="https://www.ballinacurragraveyard.ie/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            View Live Site
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="section">
@@ -237,6 +299,87 @@
     color: #6b7280;
     line-height: 1.6;
     margin: 0;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .project-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .project-image {
+    margin: -24px -24px 20px -24px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    height: 200px;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+    color: #111827;
+  }
+
+  .project-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 16px;
+  }
+
+  .project-description {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .project-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+
+  .project-link:hover {
+    background: #2563eb;
   }
 
   .section:last-child {
