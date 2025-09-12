@@ -58,13 +58,10 @@
     }
   }
 
-  // Get base path for images
-  const basePath = "";
-
   // Dynamic logo based on theme
   $: logoPath = isDark
-    ? `${basePath}/adlogo-dark.png`
-    : `${basePath}/adlogo-light.png`;
+    ? "/adlogo-dark.png"
+    : "/adlogo-light.png";
 </script>
 
 <nav class="nav">
@@ -77,7 +74,6 @@
       <ul class="links">
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -222,29 +218,13 @@
     </div>
   </section>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>
-          I'm Aidan Dennehy, a Cork-based web consultant and data analyst with
-          over 25 years of experience in IT. I hold a Master's in Data Science
-          and Analytics and a Bachelor's in Computer Science and Web
-          Development. I help businesses create modern websites, make better use
-          of their data, and explore new technologies like AI in practical,
-          results-driven ways.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">
           <img
-            src="{basePath}/templecurraheen-pic.jpg"
+            src="/templecurraheen-pic.jpg"
             alt="Templecurraheen Graveyard"
           />
         </div>
@@ -282,7 +262,7 @@
       <div class="project-card">
         <div class="project-image">
           <img
-            src="{basePath}/ballinacurra-pic.jpeg"
+            src="/ballinacurra-pic.jpeg"
             alt="Old Ballinacurra Graveyard"
           />
         </div>
@@ -423,51 +403,6 @@
     </div>
   </section>
 </main>
-
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Aidan Dennehy</h4>
-        <p>Cork Web Consultant & Data Analyst</p>
-        <p>Helping businesses dominate local search</p>
-      </div>
-
-      <div class="footer-section">
-        <h4>Services</h4>
-        <ul>
-          <li>Local SEO</li>
-          <li>Web Development</li>
-          <li>Data Analytics</li>
-          <li>AI Solutions</li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h4>Contact</h4>
-        <p>
-          Email: <a href="mailto:duinneahca@gmail.com">duinneahca@gmail.com</a>
-        </p>
-        <p>Location: Cork, Ireland</p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="footer-legal">
-        <a href="/privacy">Privacy Policy</a>
-        <span>•</span>
-        <a href="/terms">Terms of Service</a>
-        <span>•</span>
-        <a href="/cookies">Cookie Policy</a>
-      </div>
-      <div class="footer-copyright">
-        <p>
-          &copy; {new Date().getFullYear()} Aidan Dennehy. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <style>
   .nav {
@@ -861,28 +796,6 @@
 
   .secondary-service {
     opacity: 0.9;
-  }
-
-  /* About Section Styles */
-  .about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .about-text {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .about-text p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin: 0;
   }
 
   /* Contact Section Styles */
@@ -1376,126 +1289,6 @@
 
     .benefit-item {
       font-size: 0.9rem;
-    }
-  }
-
-  /* Footer Styles */
-  .footer {
-    background: var(--bg-secondary);
-    border-top: 2px solid var(--border-color);
-    margin-top: 60px;
-    padding: 40px 0 20px;
-  }
-
-  .footer-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-  }
-
-  .footer-section h4 {
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0 0 16px;
-  }
-
-  .footer-section p {
-    color: var(--text-secondary);
-    margin: 0 0 8px;
-    line-height: 1.5;
-  }
-
-  .footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .footer-section li {
-    color: var(--text-secondary);
-    margin-bottom: 8px;
-    line-height: 1.5;
-  }
-
-  .footer-section a {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .footer-section a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .footer-legal {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .footer-legal a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
-  }
-
-  .footer-legal a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-  }
-
-  .footer-legal span {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  .footer-copyright p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin: 0;
-  }
-
-  /* Footer Mobile Responsive */
-  @media (max-width: 768px) {
-    .footer {
-      padding: 30px 0 15px;
-      margin-top: 40px;
-    }
-
-    .footer-content {
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 15px;
-    }
-
-    .footer-legal {
-      justify-content: center;
     }
   }
 </style>
