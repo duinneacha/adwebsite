@@ -58,30 +58,10 @@
     }
   }
 
-  // Get base path for images
-  const basePath =
-    typeof window !== "undefined" &&
-    window.location.hostname === "localhost" &&
-    !window.location.pathname.startsWith("/adwebsite")
-      ? ""
-      : "/adwebsite";
-
   // Dynamic logo based on theme
   $: logoPath = isDark
-    ? `${basePath}/adlogo-dark.png`
-    : `${basePath}/adlogo-light.png`;
-
-  // Debug: log the logo path
-  $: if (typeof window !== "undefined") {
-    console.log(
-      "Logo path:",
-      logoPath,
-      "Base path:",
-      basePath,
-      "Is dark:",
-      isDark
-    );
-  }
+    ? "/adlogo-dark.png"
+    : "/adlogo-light.png";
 </script>
 
 <nav class="nav">
@@ -344,7 +324,7 @@
       <div class="project-card">
         <div class="project-image">
           <img
-            src="{basePath}/templecurraheen-pic.jpg"
+            src="/templecurraheen-pic.jpg"
             alt="Templecurraheen Graveyard"
           />
         </div>
@@ -382,7 +362,7 @@
       <div class="project-card">
         <div class="project-image">
           <img
-            src="{basePath}/ballinacurra-pic.jpeg"
+            src="/ballinacurra-pic.jpeg"
             alt="Old Ballinacurra Graveyard"
           />
         </div>
