@@ -59,9 +59,7 @@
   }
 
   // Dynamic logo based on theme
-  $: logoPath = isDark
-    ? "/adlogo-dark.png"
-    : "/adlogo-light.png";
+  $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
 </script>
 
 <nav class="nav">
@@ -122,15 +120,10 @@
     <div class="hero">
       <img src={logoPath} alt="AD Logo" class="hero-logo" />
       <h1 class="hero-title">Aidan Dennehy</h1>
+      <p class="hero-subtitle-text">
+        IT Consultant, Data Analyst, Web Developer
+      </p>
       <p class="slogan">Your Local Partner for Smarter Tech</p>
-      <div class="hero-cta">
-        <h2 class="hero-highlight">🚀 Get Found First on Google</h2>
-        <p class="hero-subtitle">
-          Stop losing customers to competitors who show up first in local
-          search. I help Cork businesses dominate their local market online.
-        </p>
-        <a href="#services" class="cta-button">See How I Can Help</a>
-      </div>
     </div>
   </section>
 
@@ -236,6 +229,15 @@
   <section id="services" class="section">
     <h2 class="services-title">How I Help Cork Businesses Win Online</h2>
 
+    <!-- Get Found First Banner -->
+    <div class="services-banner">
+      <h2 class="services-banner-title">🚀 Get Found First on Google</h2>
+      <p class="services-banner-text">
+        Stop losing customers to competitors who show up first in local search.
+        I help Cork businesses dominate their local market online.
+      </p>
+    </div>
+
     <!-- Featured Lead Service -->
     <div class="featured-service">
       <div class="featured-badge">🏆 Most Popular</div>
@@ -323,10 +325,7 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">
-          <img
-            src="/templecurraheen-pic.jpg"
-            alt="Templecurraheen Graveyard"
-          />
+          <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
         </div>
         <h3>Templecurraheen Graveyard Website</h3>
         <p class="project-subtitle">Digital Heritage Documentation Project</p>
@@ -361,10 +360,7 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img
-            src="/ballinacurra-pic.jpeg"
-            alt="Old Ballinacurra Graveyard"
-          />
+          <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
         </div>
         <h3>Old Ballinacurra Graveyard Website</h3>
         <p class="project-subtitle">Community Heritage Memorial Site</p>
@@ -707,12 +703,46 @@
     transition: opacity 0.3s ease;
   }
 
+  .hero-subtitle-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 8px 0 16px;
+  }
+
   .slogan {
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--text-muted);
     margin: 8px 0 16px;
     font-style: italic;
+  }
+
+  .services-banner {
+    background: var(--bg-card);
+    border: 2px solid var(--accent-color);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 48px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .services-banner-title {
+    font-size: 1.8rem;
+    margin: 0 0 16px;
+    color: var(--accent-color);
+    font-weight: 700;
+  }
+
+  .services-banner-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* About Section Styles */
@@ -1372,7 +1402,20 @@
       font-size: 1.4rem;
     }
 
-    .hero-subtitle {
+    .hero-subtitle-text {
+      font-size: 1rem;
+    }
+
+    .services-banner {
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .services-banner-title {
+      font-size: 1.5rem;
+    }
+
+    .services-banner-text {
       font-size: 1rem;
     }
 
