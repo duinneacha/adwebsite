@@ -25,6 +25,13 @@
   <link rel="icon" href={favicon} />
   <link rel="canonical" href="https://aidandennehy.ie" />
 
+  <!-- Rybbit Analytics -->
+  <script
+    src="https://app.rybbit.io/api/script.js"
+    data-site-id="c73897f724d2"
+    defer
+  ></script>
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aidandennehy.ie" />
