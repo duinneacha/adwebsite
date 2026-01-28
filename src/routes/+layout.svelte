@@ -6,24 +6,12 @@
 
 <svelte:head>
   <!-- Basic Meta Tags -->
-  <title
-    >Aidan Dennehy - Cork Web Consultant & Data Analyst | Local SEO Expert</title
-  >
-  <meta
-    name="description"
-    content="Cork-based web consultant and data analyst with 25+ years IT experience. I help businesses dominate local search, build modern websites, and leverage AI for growth. Get found first on Google."
-  />
-  <meta
-    name="keywords"
-    content="Cork web consultant, local SEO Cork, Google Business Profile optimization, web developer Cork, data analyst Cork, AI websites, digital marketing Cork"
-  />
   <meta name="author" content="Aidan Dennehy" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="utf-8" />
 
   <!-- Favicon -->
   <link rel="icon" href={favicon} />
-  <link rel="canonical" href="https://aidandennehy.ie" />
 
   <!-- Rybbit Analytics -->
   <script
@@ -64,44 +52,6 @@
     property="twitter:image"
     content="https://aidandennehy.ie/adlogo-dark.png"
   />
-
-  <!-- Local Business Schema.org Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://aidandennehy.ie",
-      "name": "Aidan Dennehy - Web Consultant",
-      "description": "Professional web consulting and data analysis services in Cork, Ireland. Specializing in local SEO, modern websites, and AI solutions for businesses.",
-      "url": "https://aidandennehy.ie",
-      "telephone": "",
-      "email": "duinneahca@gmail.com",
-      "founder": {
-        "@type": "Person",
-        "name": "Aidan Dennehy",
-        "jobTitle": "Web Consultant & Data Analyst",
-        "email": "duinneahca@gmail.com"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Cork",
-        "addressCountry": "IE"
-      },
-      "areaServed": {
-        "@type": "Place",
-        "name": "Cork, Ireland"
-      },
-      "serviceType": [
-        "Web Development",
-        "Local SEO",
-        "Data Analytics",
-        "Google Business Profile Optimization",
-        "AI Website Development"
-      ],
-      "priceRange": "€€",
-      "sameAs": []
-    }
-  </script>
 
   <!-- Additional SEO Meta Tags -->
   <meta name="robots" content="index, follow" />

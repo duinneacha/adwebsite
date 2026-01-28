@@ -9,11 +9,12 @@
 </script>
 
 <svelte:head>
-  <title>Terms of Service - Aidan Dennehy</title>
+  <title>Terms of Service for Web Consulting | Aidan Dennehy</title>
   <meta
     name="description"
-    content="Terms of Service for Aidan Dennehy's web consulting services. Understand our service terms and conditions."
+    content="Terms of service for Aidan Dennehy's web consulting services in Cork, Ireland, covering payments, responsibilities, and service conditions."
   />
+  <link rel="canonical" href="https://www.aidandennehy.ie/terms" />
 </svelte:head>
 
 <main class="legal-page">
@@ -26,6 +27,13 @@
     </header>
 
     <div class="content">
+      <p>
+        These Terms of Service outline how Aidan Dennehy provides web consulting
+        services for clients in Cork, Ireland, including responsibilities and
+        payment terms. You can also review the
+        <a href="/privacy">Privacy Policy</a> and
+        <a href="/cookies">Cookie Policy</a> for related information.
+      </p>
       <section>
         <h2>1. Acceptance of Terms</h2>
         <p>
@@ -303,22 +311,3 @@
     }
   }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

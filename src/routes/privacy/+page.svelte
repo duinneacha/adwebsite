@@ -9,11 +9,12 @@
 </script>
 
 <svelte:head>
-  <title>Privacy Policy - Aidan Dennehy</title>
+  <title>Privacy Policy for Web Consulting Services | Aidan Dennehy</title>
   <meta
     name="description"
-    content="Privacy Policy for Aidan Dennehy's web consulting services. Learn how we protect your personal information."
+    content="Privacy policy for Aidan Dennehy's web consulting services in Cork, Ireland, explaining what data we collect, use, and protect."
   />
+  <link rel="canonical" href="https://www.aidandennehy.ie/privacy" />
 </svelte:head>
 
 <main class="legal-page">
@@ -26,6 +27,12 @@
     </header>
 
     <div class="content">
+      <p>
+        This Privacy Policy explains how Aidan Dennehy handles personal
+        information on this site for visitors and clients in Cork, Ireland. For
+        related details, read the <a href="/cookies">Cookie Policy</a> and
+        <a href="/terms">Terms of Service</a>.
+      </p>
       <section>
         <h2>1. Information We Collect</h2>
         <p>
@@ -243,4 +250,3 @@
     }
   }
 </style>
-

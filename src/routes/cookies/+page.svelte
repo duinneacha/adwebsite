@@ -9,11 +9,12 @@
 </script>
 
 <svelte:head>
-  <title>Cookie Policy - Aidan Dennehy</title>
+  <title>Cookie Policy for Web Consulting Services | Aidan Dennehy</title>
   <meta
     name="description"
-    content="Cookie Policy for Aidan Dennehy's website. Learn about how we use cookies and your choices."
+    content="Cookie policy for Aidan Dennehy's website in Cork, Ireland, explaining cookie types, purposes, and how to manage preferences."
   />
+  <link rel="canonical" href="https://www.aidandennehy.ie/cookies" />
 </svelte:head>
 
 <main class="legal-page">
@@ -26,6 +27,12 @@
     </header>
 
     <div class="content">
+      <p>
+        This Cookie Policy describes how cookies are used on the Aidan Dennehy
+        website in Cork, Ireland and what choices you have. See the
+        <a href="/privacy">Privacy Policy</a> and
+        <a href="/terms">Terms of Service</a> for related details.
+      </p>
       <section>
         <h2>1. What Are Cookies</h2>
         <p>
@@ -328,4 +335,3 @@
     }
   }
 </style>
-

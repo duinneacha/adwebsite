@@ -53,7 +53,7 @@
         "Theme updated, isDark:",
         isDark,
         "Applied class:",
-        isDark ? "dark-theme" : "light-theme"
+        isDark ? "dark-theme" : "light-theme",
       );
     }
   }
@@ -61,6 +61,15 @@
   // Dynamic logo based on theme
   $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
 </script>
+
+<svelte:head>
+  <title>Cork Web Consultant & SEO Services | Aidan Dennehy</title>
+  <meta
+    name="description"
+    content="Cork-based web consultant helping local businesses with SEO, data analytics, and modern websites. Practical support to grow online in Ireland."
+  />
+  <link rel="canonical" href="https://www.aidandennehy.ie/" />
+</svelte:head>
 
 <nav class="nav">
   <div class="container">
@@ -121,7 +130,8 @@
       <img src={logoPath} alt="AD Logo" class="hero-logo" />
       <h1 class="hero-title">Aidan Dennehy</h1>
       <p class="hero-subtitle-text">
-        IT Consultant, Data Analyst, Web Developer
+        Cork-based IT consultant, data analyst, and web developer helping local
+        businesses grow online.
       </p>
       <p class="slogan">Your Local Partner for Smarter Tech</p>
     </div>
@@ -189,7 +199,7 @@
         <div class="about-highlights">
           <div class="highlight-card">
             <div class="highlight-icon">📈</div>
-            <h4>25+ Years Experience</h4>
+            <h3>25+ Years Experience</h3>
             <p>
               Deep expertise in IT systems, data analysis, and digital strategy
             </p>
@@ -197,19 +207,19 @@
 
           <div class="highlight-card">
             <div class="highlight-icon">🎯</div>
-            <h4>Local SEO Specialist</h4>
+            <h3>Local SEO Specialist</h3>
             <p>Helping Cork businesses dominate their local search results</p>
           </div>
 
           <div class="highlight-card">
             <div class="highlight-icon">🤝</div>
-            <h4>Personal Service</h4>
+            <h3>Personal Service</h3>
             <p>Direct access to me, not a team of junior staff</p>
           </div>
 
           <div class="highlight-card">
             <div class="highlight-icon">🔧</div>
-            <h4>Practical Solutions</h4>
+            <h3>Practical Solutions</h3>
             <p>Technology that works for your business, not against it</p>
           </div>
         </div>
@@ -231,7 +241,7 @@
 
     <!-- Get Found First Banner -->
     <div class="services-banner">
-      <h2 class="services-banner-title">🚀 Get Found First on Google</h2>
+      <h3 class="services-banner-title">🚀 Get Found First on Google</h3>
       <p class="services-banner-text">
         Stop losing customers to competitors who show up first in local search.
         I help Cork businesses dominate their local market online.
@@ -393,7 +403,10 @@
         <h2 class="contact-title">Get In Touch</h2>
         <p class="contact-subtitle">
           Ready to dominate your local market? Let's discuss how I can help your
-          Cork business get found first on Google.
+          Cork business get found first on Google. Review the
+          <a href="/privacy">Privacy Policy</a> and
+          <a href="/cookies">Cookie Policy</a> for details on how this site handles
+          your data.
         </p>
       </div>
 
@@ -825,7 +838,7 @@
     display: block;
   }
 
-  .highlight-card h4 {
+  .highlight-card h3 {
     font-size: 1.1rem;
     color: var(--text-primary);
     margin: 0 0 8px;
@@ -1658,7 +1671,7 @@
       font-size: 1.8rem;
     }
 
-    .highlight-card h4 {
+    .highlight-card h3 {
       font-size: 1rem;
     }
 
