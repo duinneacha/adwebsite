@@ -7,9 +7,6 @@
 <svelte:head>
   <!-- Basic Meta Tags -->
   <meta name="author" content="Aidan Dennehy" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8" />
-
   <!-- Favicon -->
   <link rel="icon" href={favicon} />
 

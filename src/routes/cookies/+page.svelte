@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-  <title>Cookie Policy for Web Consulting Services | Aidan Dennehy</title>
+  <title>Cookie Policy | Aidan Dennehy</title>
   <meta
     name="description"
     content="Cookie policy for Aidan Dennehy's website in Cork, Ireland, explaining cookie types, purposes, and how to manage preferences."

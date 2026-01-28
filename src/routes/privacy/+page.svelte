@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-  <title>Privacy Policy for Web Consulting Services | Aidan Dennehy</title>
+  <title>Privacy Policy | Aidan Dennehy</title>
   <meta
     name="description"
     content="Privacy policy for Aidan Dennehy's web consulting services in Cork, Ireland, explaining what data we collect, use, and protect."

@@ -128,10 +128,10 @@
   <section id="home" class="section hero-section">
     <div class="hero">
       <img src={logoPath} alt="AD Logo" class="hero-logo" />
-      <h1 class="hero-title">Aidan Dennehy</h1>
+      <h1 class="hero-title">Cork Web Consultant & Local SEO Specialist</h1>
       <p class="hero-subtitle-text">
-        Cork-based IT consultant, data analyst, and web developer helping local
-        businesses grow online.
+        Aidan Dennehy — Cork-based IT consultant, data analyst, and web
+        developer helping local businesses grow online.
       </p>
       <p class="slogan">Your Local Partner for Smarter Tech</p>
     </div>
