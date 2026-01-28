@@ -1,6 +1,4 @@
 <script lang="ts">
-  import favicon from "$lib/assets/favicon.svg";
-
   let { children } = $props();
 </script>
 
@@ -8,7 +6,7 @@
   <!-- Basic Meta Tags -->
   <meta name="author" content="Aidan Dennehy" />
   <!-- Favicon -->
-  <link rel="icon" href={favicon} />
+  <link rel="icon" href="/adlogo-dark.png" type="image/png" />
 
   <!-- Rybbit Analytics -->
   <script

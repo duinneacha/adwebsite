@@ -128,12 +128,11 @@
   <section id="home" class="section hero-section">
     <div class="hero">
       <img src={logoPath} alt="AD Logo" class="hero-logo" />
-      <h1 class="hero-title">Cork Web Consultant & Local SEO Specialist</h1>
+      <h1 class="hero-title">Cork Web Consultant & Data Specialist</h1>
       <p class="hero-subtitle-text">
-        Aidan Dennehy — Cork-based IT consultant, data analyst, and web
-        developer helping local businesses grow online.
+        Aidan Dennehy helps businesses improve visibility through SEO,
+        understand and use their data, and build clear, maintainable websites.
       </p>
-      <p class="slogan">Your Local Partner for Smarter Tech</p>
     </div>
   </section>
 
@@ -721,14 +720,6 @@
     font-weight: 500;
     color: var(--text-secondary);
     margin: 8px 0 16px;
-  }
-
-  .slogan {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin: 8px 0 16px;
-    font-style: italic;
   }
 
   .services-banner {
