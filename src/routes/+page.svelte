@@ -333,6 +333,24 @@
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
+        <h3>AP Duplicate Payment Detection</h3>
+        <p class="project-subtitle">Client-Side Data Analysis</p>
+        <p class="project-description">
+          Client-side tool for identifying potential duplicate payments in AP
+          data using explainable audit rules. Files are processed locally for
+          privacy.
+        </p>
+        <div class="project-links">
+          <a
+            href="/projects/ap-duplicate-payment-detector"
+            class="project-link"
+          >
+            View Project
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
         <div class="project-image">
           <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
         </div>
