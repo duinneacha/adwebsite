@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
 
   type ColumnMapping = {
     vendorId: string;
@@ -61,6 +61,7 @@
     rawHeaders: string[];
   };
 
+  let isDark = true;
   let file: File | null = null;
   let headers: string[] = [];
   let mapping: ColumnMapping = emptyMapping();
@@ -75,6 +76,7 @@
   let errorMessage = "";
   let results: WorkerResult | null = null;
   let worker: Worker | null = null;
+  $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
 
   function emptyMapping(): ColumnMapping {
     return {
@@ -308,6 +310,24 @@
     });
   }
 
+  function applyTheme() {
+    if (typeof document === "undefined") return;
+    const htmlElement = document.documentElement;
+    htmlElement.classList.remove("light-theme", "dark-theme");
+    htmlElement.classList.add(isDark ? "dark-theme" : "light-theme");
+  }
+
+  onMount(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      isDark = savedTheme === "dark";
+    } else {
+      isDark = true;
+      localStorage.setItem("theme", "dark");
+    }
+    applyTheme();
+  });
+
   onDestroy(() => {
     worker?.terminate();
   });
@@ -324,6 +344,24 @@
     href="https://www.aidandennehy.ie/projects/ap-duplicate-payment-detector"
   />
 </svelte:head>
+
+<nav class="nav">
+  <div class="container">
+    <div class="brand">
+      <img src={logoPath} alt="AD Logo" class="logo" />
+      <span>AD</span>
+    </div>
+    <div class="nav-right">
+      <ul class="links">
+        <li><a href="/#home">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <main class="project-page">
   <section class="intro">
@@ -597,6 +635,74 @@
 </main>
 
 <style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(17, 24, 39, 0.9);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+  }
+
+  .light-theme .nav {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .brand {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo {
+    height: 40px;
+    width: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .links a:hover,
+  .links a:focus {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
   .project-page {
     max-width: 1100px;
     margin: 0 auto;
