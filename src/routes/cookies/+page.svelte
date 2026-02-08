@@ -187,7 +187,7 @@
           at:
         </p>
         <p>
-          Email: <a href="mailto:duinneahca@gmail.com">duinneahca@gmail.com</a
+          Email: <a href="mailto:duinneacha@gmail.com">duinneacha@gmail.com</a
           ><br />
           Address: Cork, Ireland
         </p>

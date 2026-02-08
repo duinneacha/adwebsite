@@ -1,4 +1,6 @@
 <script lang="ts">
+  import ConsentBanner from "$lib/components/ConsentBanner.svelte";
+
   let { children } = $props();
 </script>
 
@@ -7,13 +9,6 @@
   <meta name="author" content="Aidan Dennehy" />
   <!-- Favicon -->
   <link rel="icon" href="/adlogo-dark.png" type="image/png" />
-
-  <!-- Rybbit Analytics -->
-  <script
-    src="https://app.rybbit.io/api/script.js"
-    data-site-id="c73897f724d2"
-    defer
-  ></script>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -124,3 +119,4 @@
 </svelte:head>
 
 {@render children?.()}
+<ConsentBanner />

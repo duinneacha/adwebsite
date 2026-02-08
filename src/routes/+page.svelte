@@ -432,8 +432,8 @@
           <div class="contact-item">
             <h3>📧 Email Me Directly</h3>
             <p>
-              <a href="mailto:duinneahca@gmail.com" class="contact-link"
-                >duinneahca@gmail.com</a
+              <a href="mailto:duinneacha@gmail.com" class="contact-link"
+                >duinneacha@gmail.com</a
               >
             </p>
           </div>
@@ -458,9 +458,8 @@
         <div class="contact-form-wrapper">
           <form
             class="contact-form"
-            action="mailto:duinneahca@gmail.com"
-            method="post"
-            enctype="text/plain"
+            action="https://formspree.io/f/mvzbggar"
+            method="POST"
           >
             <div class="form-group">
               <label for="name">Your Name *</label>
