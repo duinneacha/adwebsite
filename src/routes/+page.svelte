@@ -81,8 +81,8 @@
       <ul class="links">
         <li><a href="#home">Home</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button
@@ -128,190 +128,73 @@
   <section id="home" class="section hero-section">
     <div class="hero">
       <img src={logoPath} alt="AD Logo" class="hero-logo" />
-      <h1 class="hero-title">Cork Web Consultant & Data Specialist</h1>
+      <h1 class="hero-title">
+        Clear, well-defined web and data systems for Cork businesses
+      </h1>
       <p class="hero-subtitle-text">
-        Aidan Dennehy helps businesses improve visibility through SEO,
-        understand and use their data, and build clear, maintainable websites.
+        I help you turn a vague idea or messy process into a reliable,
+        maintainable solution — by defining requirements properly before we
+        build.
       </p>
+      <div class="hero-actions">
+        <a class="cta-button" href="#contact">Book a 15-minute call</a>
+        <a class="cta-button secondary" href="#how-i-work">See how I work</a>
+      </div>
     </div>
   </section>
 
-  <section id="services" class="section">
-    <h2 class="services-title">How I Help Cork Businesses Win Online</h2>
-
-    <!-- Get Found First Banner -->
-    <div class="services-banner">
-      <h3 class="services-banner-title">🚀 Get Found First on Google</h3>
-      <p class="services-banner-text">
-        Stop losing customers to competitors who show up first in local search.
-        I help Cork businesses dominate their local market online.
+  <section id="how-i-work" class="section">
+    <div class="content-block">
+      <h2 class="section-title">How I work</h2>
+      <p class="section-intro">
+        Most projects go wrong because goals and requirements were never
+        properly nailed down. I start with clarity, then build.
       </p>
-    </div>
-
-    <!-- Featured Lead Service -->
-    <div class="featured-service">
-      <div class="featured-badge">🏆 Most Popular</div>
-      <h3 class="featured-title">Local Search Domination</h3>
-      <p class="featured-subtitle">
-        Get Your Business to the Top of Google Maps and Search
-      </p>
-      <div class="featured-content">
-        <div class="featured-text">
-          <p class="featured-description">
-            Stop losing customers to competitors who show up first online. I'll
-            optimize your Google Business Profile, build local citations, and
-            implement proven strategies to get you ranking at the top when local
-            customers search.
-          </p>
-          <div class="featured-benefits">
-            <div class="benefit-item">
-              ✅ Google Business Profile optimization
-            </div>
-            <div class="benefit-item">✅ Local citation building</div>
-            <div class="benefit-item">✅ Automated review generation</div>
-            <div class="benefit-item">✅ Monthly performance reporting</div>
-          </div>
-          <button class="featured-cta">Start Dominating Local Search →</button>
-        </div>
-        <div class="featured-visual">
-          <div class="search-mockup">
-            <div class="search-bar">🔍 "best [your service] Cork"</div>
-            <div class="search-result featured">
-              <div class="result-badge">AD</div>
-              <div class="result-text">
-                <div class="result-title">Your Business Here ⭐⭐⭐⭐⭐</div>
-                <div class="result-subtitle">
-                  Top result • Open now • 5.0 rating
-                </div>
-              </div>
-            </div>
-            <div class="search-result">
-              <div class="result-text">
-                <div class="result-title">Competitor #2</div>
-                <div class="result-subtitle">Lower result • No reviews</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Other Services -->
-    <h3 class="other-services-title">Additional Services</h3>
-    <div class="services-grid">
-      <div class="service-card secondary-service">
-        <div class="service-card">
-          <h3>Smart Customer Insights Dashboard</h3>
-          <p class="service-subtitle">Know Your Business Like Never Before</p>
-          <p class="service-description">
-            Turn your scattered business data into clear, actionable insights.
-            I'll create a custom dashboard that shows you who your best
-            customers really are, when they buy, what they spend, and which
-            marketing actually works. Get automated reports that translate
-            complex analytics into plain English decisions you can act on
-            immediately.
+      <div class="process-grid">
+        <div class="process-card">
+          <span class="process-step">1</span>
+          <h3>Discovery</h3>
+          <p>
+            Understand the business, constraints, and what “success” means.
           </p>
         </div>
-
-        <div class="service-card">
-          <h3>AI-Powered Website That Sells 24/7</h3>
-          <p class="service-subtitle">
-            Your Digital Salesperson That Never Sleeps
-          </p>
-          <p class="service-description">
-            Transform your website from a digital brochure into a sales machine.
-            I'll build you a modern, mobile-optimized site with an AI chatbot
-            that answers questions, captures leads, and guides visitors toward
-            buying - even when you're closed. Includes lead capture systems and
-            automated follow-up sequences.
-          </p>
+        <div class="process-card">
+          <span class="process-step">2</span>
+          <h3>Requirements</h3>
+          <p>Define scope, priorities, and what we’re not doing.</p>
+        </div>
+        <div class="process-card">
+          <span class="process-step">3</span>
+          <h3>Prototype</h3>
+          <p>Early working version to validate direction fast.</p>
+        </div>
+        <div class="process-card">
+          <span class="process-step">4</span>
+          <h3>Build & iterate</h3>
+          <p>Steady delivery with transparent updates.</p>
+        </div>
+        <div class="process-card">
+          <span class="process-step">5</span>
+          <h3>Handover & support</h3>
+          <p>Documentation, maintenance options, next steps.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>AP Duplicate Payment Detection</h3>
-        <p class="project-subtitle">Client-Side Data Analysis</p>
-        <p class="project-description">
-          Client-side tool for identifying potential duplicate payments in AP
-          data using explainable audit rules. Files are processed locally for
-          privacy.
-        </p>
-        <div class="project-links">
-          <a
-            href="/projects/ap-duplicate-payment-detector"
-            class="project-link"
-          >
-            View Project
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
-        </div>
-        <h3>Templecurraheen Graveyard Website</h3>
-        <p class="project-subtitle">Digital Heritage Documentation Project</p>
-        <p class="project-description">
-          A comprehensive digital archive documenting the historic
-          Templecurraheen Graveyard in Carrigtwohill, Co. Cork. This project
-          preserves centuries of local history through burial records,
-          historical photographs, and genealogical resources. Features
-          interactive maps, searchable burial lists, and a complete historical
-          archive accessible to researchers, family members, and the local
-          community.
-        </p>
-        <div class="project-links">
-          <a
-            href="https://duinneacha.github.io/templecurraheen-website/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-          >
-            View Live Site
-          </a>
-          <a
-            href="https://github.com/duinneacha/templecurraheen-website"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-          >
-            View on GitHub
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
-        </div>
-        <h3>Old Ballinacurra Graveyard Website</h3>
-        <p class="project-subtitle">Community Heritage Memorial Site</p>
-        <p class="project-description">
-          A dedicated memorial website for Old Ballinacurra Graveyard, featuring
-          comprehensive grave records, historical features, and community
-          stories. This project honors the memory of Frankie Devlin and
-          preserves the heritage of Ballinacurra through digital documentation.
-          Includes interactive grave listings, historical features, and
-          community dedication pages that connect families with their ancestral
-          history.
-        </p>
-        <div class="project-links">
-          <a
-            href="https://www.ballinacurragraveyard.ie/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-          >
-            View Live Site
-          </a>
-        </div>
-      </div>
+  <section class="section">
+    <div class="content-block">
+      <h2 class="section-title">Why this approach works</h2>
+      <ul class="benefit-list">
+        <li>Reduces rework and scope drift</li>
+        <li>Makes cost and timelines more predictable</li>
+        <li>Produces clearer, maintainable systems</li>
+        <li>Keeps decisions tied to business value</li>
+      </ul>
+      <p class="credibility-line">
+        I’m an experienced IT consultant working across web development and data
+        analytics, with a focus on clear communication and practical delivery.
+      </p>
     </div>
   </section>
 
@@ -320,8 +203,8 @@
       <div class="contact-header">
         <h2 class="contact-title">Get In Touch</h2>
         <p class="contact-subtitle">
-          Ready to dominate your local market? Let's discuss how I can help your
-          Cork business get found first on Google. Review the
+          If you’re considering a new system — or improving an existing one —
+          tell me what you’re trying to achieve. Review the
           <a href="/privacy">Privacy Policy</a> and
           <a href="/cookies">Cookie Policy</a> for details on how this site handles
           your data.
@@ -395,7 +278,7 @@
             </div>
 
             <div class="form-group">
-              <label for="service">Interested In *</label>
+              <label for="service">What are you trying to improve? *</label>
               <select id="service" name="service" required>
                 <option value="">Select a service...</option>
                 <option value="Local Search Domination"
@@ -420,6 +303,10 @@
                 rows="5"
                 placeholder="Describe your current challenges and what you'd like to achieve with your online presence..."
               ></textarea>
+              <p class="form-helper">
+                If you’re not sure, describe the situation — we’ll define the
+                requirements together.
+              </p>
             </div>
 
             <button type="submit" class="submit-btn">Send Message 🚀</button>
@@ -443,7 +330,7 @@
     align-items: center;
   }
 
-  .light-theme .nav {
+  :global(.light-theme) .nav {
     background: rgba(255, 255, 255, 0.9);
   }
 
@@ -528,6 +415,10 @@
     padding: 24px 16px 80px;
   }
 
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
   .section {
     padding: 48px 0;
     scroll-margin-top: calc(var(--header-height) + 16px);
@@ -578,30 +469,6 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  .hero-cta {
-    background: var(--bg-card);
-    border: 2px solid var(--accent-color);
-    border-radius: 16px;
-    padding: 32px;
-    margin-top: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-  }
-
-  .hero-highlight {
-    font-size: 1.8rem;
-    margin: 0 0 16px;
-    color: var(--accent-color);
-    font-weight: 700;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 0 0 24px;
-  }
-
   .cta-button {
     display: inline-block;
     background: linear-gradient(
@@ -619,6 +486,25 @@
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: none;
+  }
+
+  .cta-button.secondary:hover {
+    background: var(--bg-secondary);
+    box-shadow: none;
   }
 
   .cta-button:hover {
@@ -640,214 +526,89 @@
     margin: 8px 0 16px;
   }
 
-  .services-banner {
-    background: var(--bg-card);
-    border: 2px solid var(--accent-color);
-    border-radius: 16px;
-    padding: 32px;
-    margin-bottom: 48px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  .content-block {
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .services-banner-title {
-    font-size: 1.8rem;
-    margin: 0 0 16px;
-    color: var(--accent-color);
-    font-weight: 700;
-  }
-
-  .services-banner-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .services-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 48px;
-    color: var(--text-primary);
-    font-weight: 700;
-  }
-
-  .featured-service {
-    background: linear-gradient(
-      135deg,
-      var(--bg-card) 0%,
-      var(--bg-secondary) 100%
-    );
-    border: 3px solid var(--accent-color);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 48px;
-    position: relative;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-  }
-
-  .featured-badge {
-    position: absolute;
-    top: -15px;
-    left: 40px;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-    color: #1f2937;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
-  }
-
-  .featured-title {
+  .section-title {
     font-size: 2.2rem;
-    color: var(--accent-color);
-    margin: 0 0 12px;
-    font-weight: 800;
-  }
-
-  .featured-subtitle {
-    font-size: 1.3rem;
-    color: var(--text-secondary);
-    margin: 0 0 24px;
-    font-weight: 600;
-  }
-
-  .featured-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-  }
-
-  .featured-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-  }
-
-  .featured-benefits {
-    display: grid;
-    gap: 12px;
-    margin-bottom: 32px;
-  }
-
-  .benefit-item {
-    font-size: 1rem;
+    text-align: center;
+    margin: 0 0 16px;
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: 700;
   }
 
-  .featured-cta {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+  .section-intro {
+    text-align: center;
+    color: var(--text-secondary);
+    margin: 0 auto 32px;
+    max-width: 720px;
+    line-height: 1.6;
   }
 
-  .featured-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
   }
 
-  .search-mockup {
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
+  .process-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 20px;
-    font-family: system-ui;
   }
 
-  .light-theme .search-mockup {
-    background: #1e293b;
-    border-color: #475569;
+  .process-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: var(--text-primary);
   }
 
-  .search-bar {
-    background: white;
-    border: 1px solid #d1d5db;
-    border-radius: 25px;
-    padding: 12px 20px;
-    margin-bottom: 16px;
-    color: #6b7280;
-    font-size: 0.95rem;
+  .process-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
   }
 
-  .light-theme .search-bar {
-    background: #374151;
-    border-color: #4b5563;
-    color: #d1d5db;
-  }
-
-  .search-result {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 8px;
-    display: flex;
+  .process-step {
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
-  }
-
-  .light-theme .search-result {
-    background: #374151;
-    border-color: #4b5563;
-  }
-
-  .search-result.featured {
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-  }
-
-  .result-badge {
-    background: var(--accent-color);
-    color: white;
+    justify-content: center;
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--accent-color);
+    color: #fff;
     font-weight: 700;
-    font-size: 0.8rem;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
   }
 
-  .result-title {
-    font-weight: 600;
-    color: var(--accent-color);
-    font-size: 0.95rem;
+  .benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 24px;
+    max-width: 720px;
+    display: grid;
+    gap: 12px;
   }
 
-  .result-subtitle {
-    color: #6b7280;
-    font-size: 0.85rem;
-  }
-
-  .light-theme .result-subtitle {
-    color: #9ca3af;
-  }
-
-  .other-services-title {
-    font-size: 1.8rem;
+  .benefit-list li {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 16px;
     color: var(--text-secondary);
-    margin: 48px 0 32px;
-    text-align: center;
-    font-weight: 600;
   }
 
-  .secondary-service {
-    opacity: 0.9;
+  .credibility-line {
+    text-align: center;
+    color: var(--text-secondary);
+    margin: 0 auto;
+    max-width: 720px;
+    line-height: 1.6;
   }
 
   /* Contact Section Styles */
@@ -972,6 +733,12 @@
     font-family: inherit;
   }
 
+  .form-helper {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 8px 0 0;
+  }
+
   .submit-btn {
     background: linear-gradient(
       135deg,
@@ -997,128 +764,6 @@
 
   .submit-btn:active {
     transform: translateY(0);
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    margin-top: 32px;
-  }
-
-  .service-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .service-card h3 {
-    margin: 0 0 8px;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-  }
-
-  .service-subtitle {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin: 0 0 16px;
-  }
-
-  .service-description {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    margin-top: 32px;
-  }
-
-  .project-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .project-image {
-    margin: -24px -24px 20px -24px;
-    border-radius: 12px 12px 0 0;
-    overflow: hidden;
-    height: 200px;
-  }
-
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
-  .project-card:hover .project-image img {
-    transform: scale(1.05);
-  }
-
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .project-card h3 {
-    margin: 0 0 8px;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-  }
-
-  .project-subtitle {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin: 0 0 16px;
-  }
-
-  .project-description {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0 0 20px;
-  }
-
-  .project-links {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .project-link {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--accent-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-  }
-
-  .project-link:hover {
-    background: var(--accent-hover);
   }
 
   .section:last-child {
@@ -1172,29 +817,7 @@
       height: 80px;
     }
 
-    .hero-cta {
-      padding: 20px;
-      margin: 16px 0;
-    }
-
-    .hero-highlight {
-      font-size: 1.4rem;
-    }
-
     .hero-subtitle-text {
-      font-size: 1rem;
-    }
-
-    .services-banner {
-      padding: 24px;
-      margin-bottom: 32px;
-    }
-
-    .services-banner-title {
-      font-size: 1.5rem;
-    }
-
-    .services-banner-text {
       font-size: 1rem;
     }
 
@@ -1204,89 +827,12 @@
       padding: 14px 24px;
     }
 
-    .services-title {
-      font-size: 1.8rem;
-      padding: 0 16px;
-    }
-
-    .featured-service {
-      padding: 20px 16px;
-      margin: 16px 8px;
-      border-radius: 16px;
-    }
-
-    .featured-badge {
-      left: 16px;
-      top: -12px;
-      font-size: 0.8rem;
-      padding: 6px 16px;
-    }
-
-    .featured-title {
-      font-size: 1.6rem;
-    }
-
-    .featured-subtitle {
-      font-size: 1.1rem;
-    }
-
-    .featured-content {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .featured-description {
-      font-size: 1rem;
-    }
-
-    .featured-cta {
+    .hero-actions {
       width: 100%;
-      padding: 14px 24px;
     }
 
-    .search-mockup {
-      padding: 16px;
-    }
-
-    .search-bar {
-      font-size: 0.9rem;
-      padding: 10px 16px;
-    }
-
-    .search-result {
-      padding: 12px;
-    }
-
-    .result-title {
-      font-size: 0.9rem;
-    }
-
-    .result-subtitle {
-      font-size: 0.8rem;
-    }
-
-    .other-services-title {
-      font-size: 1.5rem;
-      padding: 0 16px;
-    }
-
-    .services-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 0 8px;
-    }
-
-    .service-card {
-      padding: 20px;
-    }
-
-    .project-card {
-      padding: 20px;
-    }
-
-    .project-image {
-      margin: -20px -20px 16px -20px;
-      height: 160px;
+    .section-title {
+      font-size: 1.8rem;
     }
 
     main {
@@ -1331,30 +877,6 @@
   @media (max-width: 480px) {
     .hero-title {
       font-size: 1.8rem;
-    }
-
-    .hero-highlight {
-      font-size: 1.2rem;
-    }
-
-    .services-title {
-      font-size: 1.5rem;
-    }
-
-    .featured-title {
-      font-size: 1.4rem;
-    }
-
-    .featured-service {
-      padding: 16px 12px;
-    }
-
-    .featured-content {
-      gap: 16px;
-    }
-
-    .benefit-item {
-      font-size: 0.9rem;
     }
 
   }
