@@ -221,7 +221,7 @@
     align-items: center;
   }
 
-  .light-theme .nav {
+  :global(.light-theme) .nav {
     background: rgba(255, 255, 255, 0.9);
   }
 
