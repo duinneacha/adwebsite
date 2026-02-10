@@ -551,6 +551,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
+    align-items: start;
   }
 
   .process-card {
@@ -558,6 +559,8 @@
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 20px;
+    overflow: visible;
+    min-height: fit-content;
   }
 
   .process-card h3 {
@@ -804,8 +807,10 @@
     }
 
     .links {
-      flex-wrap: wrap;
-      gap: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
     }
 
     .hero-title {
@@ -833,6 +838,12 @@
 
     .section-title {
       font-size: 1.8rem;
+      line-height: 1.3;
+      padding-top: 4px;
+    }
+
+    .section {
+      scroll-margin-top: 140px;
     }
 
     main {
