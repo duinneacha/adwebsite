@@ -63,10 +63,10 @@
 </script>
 
 <svelte:head>
-  <title>Cork Web Consultant & SEO Services | Aidan Dennehy</title>
+  <title>Aidan Dennehy — Full-Stack Developer & Data Analyst</title>
   <meta
     name="description"
-    content="Cork-based web consultant helping local businesses with SEO, data analytics, and modern websites. Practical support to grow online in Ireland."
+    content="Full-stack developer and data analyst with 30+ years of commercial IT experience. MSc Data Science & Analytics (MTU, 2024). Based in Carrigtwohill, Cork. Actively seeking employment."
   />
   <link rel="canonical" href="https://www.aidandennehy.ie/" />
 </svelte:head>
@@ -129,15 +129,13 @@
     <div class="hero">
       <img src={logoPath} alt="AD Logo" class="hero-logo" />
       <h1 class="hero-title">
-        Clear, well-defined web and data systems for Cork businesses
+        30+ years of commercial IT experience — now formally qualified in full-stack development and data science.
       </h1>
       <p class="hero-subtitle-text">
-        I help you turn a vague idea or messy process into a reliable,
-        maintainable solution — by defining requirements properly before we
-        build.
+        I've built enterprise systems across Ireland, the UK, the US, and India. I recently completed an MSc in Data Science & Analytics at MTU. I'm actively seeking my next role in full-stack development, data analysis, or both.
       </p>
       <div class="hero-actions">
-        <a class="cta-button" href="#contact">Book a 15-minute call</a>
+        <a class="cta-button" href="#contact">Get in touch</a>
         <a class="cta-button secondary" href="#how-i-work">See how I work</a>
       </div>
     </div>
@@ -185,15 +183,26 @@
   <section class="section">
     <div class="content-block">
       <h2 class="section-title">Why this approach works</h2>
-      <ul class="benefit-list">
-        <li>Reduces rework and scope drift</li>
-        <li>Makes cost and timelines more predictable</li>
-        <li>Produces clearer, maintainable systems</li>
-        <li>Keeps decisions tied to business value</li>
-      </ul>
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <span class="benefit-icon">🔄</span>
+          <p>Reduces rework and scope drift</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">📅</span>
+          <p>Makes cost and timelines more predictable</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">🏗</span>
+          <p>Produces clearer, maintainable systems</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">🎯</span>
+          <p>Keeps decisions tied to business value</p>
+        </div>
+      </div>
       <p class="credibility-line">
-        I’m an experienced IT consultant working across web development and data
-        analytics, with a focus on clear communication and practical delivery.
+        I’m an experienced full-stack developer and data analyst with 30+ years of commercial IT experience across Ireland, the UK, the US, and India — with formal qualifications in computer science and data science from MTU.
       </p>
     </div>
   </section>
@@ -203,11 +212,9 @@
       <div class="contact-header">
         <h2 class="contact-title">Get In Touch</h2>
         <p class="contact-subtitle">
-          If you’re considering a new system — or improving an existing one —
-          tell me what you’re trying to achieve. Review the
+          Whether you’re looking to hire an experienced developer, have a project to discuss, or just want to connect — I’d love to hear from you. Review the
           <a href="/privacy">Privacy Policy</a> and
-          <a href="/cookies">Cookie Policy</a> for details on how this site handles
-          your data.
+          <a href="/cookies">Cookie Policy</a> for details on how this site handles your data.
         </p>
       </div>
 
@@ -225,16 +232,16 @@
           <div class="contact-item">
             <h3>🚀 Quick Response</h3>
             <p>
-              I typically respond within 24 hours and offer free 15-minute
-              consultations to discuss your local search goals.
+              I typically respond within 24 hours. I'm open to permanent positions,
+              contract work, and project engagements.
             </p>
           </div>
 
           <div class="contact-item">
-            <h3>📍 Local to Cork</h3>
+            <h3>📍 Based in Cork</h3>
             <p>
-              Based in Cork, I understand the local market and can meet in
-              person if needed.
+              Based in Carrigtwohill, Cork. Available for remote work anywhere
+              and on-site across Munster.
             </p>
           </div>
         </div>
@@ -268,44 +275,38 @@
             </div>
 
             <div class="form-group">
-              <label for="business">Business Name</label>
+              <label for="business">Company / Organisation</label>
               <input
                 type="text"
                 id="business"
                 name="business"
-                placeholder="Your Business Name"
+                placeholder="Your company or organisation"
               />
             </div>
 
             <div class="form-group">
-              <label for="service">What are you trying to improve? *</label>
+              <label for="service">What’s the enquiry about? *</label>
               <select id="service" name="service" required>
-                <option value="">Select a service...</option>
-                <option value="Local Search Domination"
-                  >Local Search Domination</option
-                >
-                <option value="Customer Insights Dashboard"
-                  >Customer Insights Dashboard</option
-                >
-                <option value="AI-Powered Website">AI-Powered Website</option>
-                <option value="General Consultation"
-                  >General Consultation</option
-                >
+                <option value="">Select an option...</option>
+                <option value="Employment opportunity">Employment opportunity</option>
+                <option value="Contract / freelance project">Contract / freelance project</option>
+                <option value="Full-stack development work">Full-stack development work</option>
+                <option value="Data analysis / reporting">Data analysis / reporting</option>
+                <option value="General enquiry">General enquiry</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="message">Tell me about your goals *</label>
+              <label for="message">Tell me more *</label>
               <textarea
                 id="message"
                 name="message"
                 required
                 rows="5"
-                placeholder="Describe your current challenges and what you'd like to achieve with your online presence..."
+                placeholder="Tell me about the role, project, or opportunity..."
               ></textarea>
               <p class="form-helper">
-                If you’re not sure, describe the situation — we’ll define the
-                requirements together.
+                If you’re not sure where to start, just give me an overview and we’ll go from there.
               </p>
             </div>
 
@@ -548,19 +549,36 @@
   }
 
   .process-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    align-items: start;
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
   }
 
   .process-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 12px 20px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
     overflow: visible;
-    min-height: fit-content;
+    min-height: unset;
+    position: relative;
+  }
+
+  /* Connector line: runs from right edge of this step circle to left edge of next */
+  .process-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: calc(50% + 16px);
+    width: calc(100% - 32px);
+    height: 2px;
+    background: var(--border-color);
+    z-index: 0;
   }
 
   .process-card h3 {
@@ -585,32 +603,49 @@
     background: var(--accent-color);
     color: #fff;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
   }
 
-  .benefit-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto 24px;
-    max-width: 720px;
+  .benefit-grid {
     display: grid;
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto 24px;
   }
 
-  .benefit-list li {
+  .benefit-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding: 14px 16px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .benefit-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .benefit-card p {
+    margin: 0;
     color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
 
   .credibility-line {
     text-align: center;
     color: var(--text-secondary);
     margin: 0 auto;
-    max-width: 720px;
+    max-width: 600px;
     line-height: 1.6;
   }
 
@@ -883,11 +918,38 @@
       order: 1;
     }
 
+    /* Timeline → vertical card stack on mobile */
+    .process-grid {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .process-card {
+      padding: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .process-card::after {
+      display: none;
+    }
+
+    .process-step {
+      margin-bottom: 12px;
+    }
+
   }
 
   @media (max-width: 480px) {
     .hero-title {
       font-size: 1.8rem;
+    }
+
+    .benefit-grid {
+      grid-template-columns: 1fr;
     }
 
   }

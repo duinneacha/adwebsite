@@ -54,10 +54,10 @@
 </script>
 
 <svelte:head>
-  <title>Services | Cork Web Consultant & SEO | Aidan Dennehy</title>
+  <title>Skills & Services | Aidan Dennehy — Full-Stack Developer & Data Analyst</title>
   <meta
     name="description"
-    content="Local SEO, data insights, and AI-powered websites for Cork businesses. See how I help you get found, understand customers, and convert more leads."
+    content="Full-stack development, data analysis, and AI-assisted engineering. 30+ years of commercial IT experience. MSc Data Science & Analytics (MTU, 2024). Available for employment or project work."
   />
   <link rel="canonical" href="https://www.aidandennehy.ie/services" />
 </svelte:head>
@@ -117,94 +117,63 @@
 
 <main>
   <section id="services" class="section">
-    <h1 class="services-title">How I Help Cork Businesses Win Online</h1>
+    <h1 class="services-title">Skills & What I Can Do For You</h1>
 
     <div class="services-banner">
-      <h2 class="services-banner-title">🚀 Get Found First on Google</h2>
+      <h2 class="services-banner-title">Available for Employment, Contract, or Project Work</h2>
       <p class="services-banner-text">
-        Stop losing customers to competitors who show up first in local search.
-        I help Cork businesses dominate their local market online.
+        I'm a full-stack developer and data analyst with 30+ years of commercial IT experience and an MSc in Data Science & Analytics from MTU. I bring both proven engineering depth and current technical skills to whatever I work on.
       </p>
     </div>
 
     <div class="featured-service">
-      <div class="featured-badge">🏆 Most Popular</div>
-      <h2 class="featured-title">Local Search Domination</h2>
+      <div class="featured-badge">Full Stack</div>
+      <h2 class="featured-title">Full-Stack Development</h2>
       <p class="featured-subtitle">
-        Get Your Business to the Top of Google Maps and Search
+        End-to-end web application development — from requirements through to production
       </p>
       <div class="featured-content">
         <div class="featured-text">
           <p class="featured-description">
-            Stop losing customers to competitors who show up first online. I'll
-            optimize your Google Business Profile, build local citations, and
-            implement proven strategies to get you ranking at the top when local
-            customers search.
+            I design and build complete web applications. I work across the full stack — from database design and backend APIs through to responsive frontends — with an emphasis on well-defined requirements, clean architecture, and practical delivery. I've built and maintained systems for organisations across multiple countries over three decades.
           </p>
           <div class="featured-benefits">
-            <div class="benefit-item">
-              ✅ Google Business Profile optimization
-            </div>
-            <div class="benefit-item">✅ Local citation building</div>
-            <div class="benefit-item">✅ Automated review generation</div>
-            <div class="benefit-item">✅ Monthly performance reporting</div>
+            <div class="benefit-item">✅ Python (FastAPI, Flask) · Node.js backends</div>
+            <div class="benefit-item">✅ React · Vue · Svelte · TypeScript frontends</div>
+            <div class="benefit-item">✅ MySQL · MongoDB · Docker · Git</div>
+            <div class="benefit-item">✅ Requirements definition and technical documentation</div>
           </div>
-          <a class="featured-cta" href="/#contact"
-            >Start Dominating Local Search →</a
-          >
+          <a class="featured-cta" href="/#contact">Discuss a project →</a>
         </div>
         <div class="featured-visual">
-          <div class="search-mockup">
-            <div class="search-bar">🔍 "best [your service] Cork"</div>
-            <div class="search-result featured">
-              <div class="result-badge">AD</div>
-              <div class="result-text">
-                <div class="result-title">Your Business Here ⭐⭐⭐⭐⭐</div>
-                <div class="result-subtitle">
-                  Top result • Open now • 5.0 rating
-                </div>
-              </div>
-            </div>
-            <div class="search-result">
-              <div class="result-text">
-                <div class="result-title">Competitor #2</div>
-                <div class="result-subtitle">Lower result • No reviews</div>
-              </div>
+          <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px;">
+            <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);">Technology stack</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              {#each ['Python','FastAPI','Flask','Node.js','TypeScript','JavaScript','React','Vue','Svelte','MySQL','MongoDB','Docker','Git','REST APIs'] as tech}
+                <span style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px;padding:6px 14px;font-size:0.88rem;color:var(--text-secondary);font-weight:500;">{tech}</span>
+              {/each}
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <h2 class="other-services-title">Additional Services</h2>
+    <h2 class="other-services-title">Additional Expertise</h2>
     <div class="services-grid">
-      <div class="service-card secondary-service">
-        <div class="service-card">
-          <h3>Smart Customer Insights Dashboard</h3>
-          <p class="service-subtitle">Know Your Business Like Never Before</p>
-          <p class="service-description">
-            Turn your scattered business data into clear, actionable insights.
-            I'll create a custom dashboard that shows you who your best
-            customers really are, when they buy, what they spend, and which
-            marketing actually works. Get automated reports that translate
-            complex analytics into plain English decisions you can act on
-            immediately.
-          </p>
-        </div>
+      <div class="service-card">
+        <h3>Data Analysis & Reporting</h3>
+        <p class="service-subtitle">From raw data to clear decisions</p>
+        <p class="service-description">
+          MSc in Data Science & Analytics (MTU, 2024). I work across the full data pipeline — ingestion, transformation, statistical analysis, and machine learning — through to executive-facing dashboards in Power BI and Tableau. I have commercial experience as a senior data analyst in enterprise environments across Ireland and internationally.
+        </p>
+      </div>
 
-        <div class="service-card">
-          <h3>AI-Powered Website That Sells 24/7</h3>
-          <p class="service-subtitle">
-            Your Digital Salesperson That Never Sleeps
-          </p>
-          <p class="service-description">
-            Transform your website from a digital brochure into a sales machine.
-            I'll build you a modern, mobile-optimized site with an AI chatbot
-            that answers questions, captures leads, and guides visitors toward
-            buying - even when you're closed. Includes lead capture systems and
-            automated follow-up sequences.
-          </p>
-        </div>
+      <div class="service-card">
+        <h3>AI-Assisted Development</h3>
+        <p class="service-subtitle">AI tools applied practically, not superficially</p>
+        <p class="service-description">
+          I use Claude CLI, Cursor, and GitHub Copilot as genuine productivity tools in daily development — not autocomplete novelties. Combined with hands-on experience in TensorFlow and Scikit-learn for ML model development, I can deliver faster without sacrificing code quality or maintainability.
+        </p>
       </div>
     </div>
   </section>

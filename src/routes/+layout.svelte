@@ -15,16 +15,16 @@
   <meta property="og:url" content="https://aidandennehy.ie" />
   <meta
     property="og:title"
-    content="Aidan Dennehy - Cork Web Consultant & Local SEO Expert"
+    content="Aidan Dennehy — Full-Stack Developer & Data Analyst"
   />
   <meta
     property="og:description"
-    content="Get found first on Google! Cork-based web consultant helping businesses dominate local search with 25+ years experience. Modern websites, data insights, and AI solutions."
+    content="Full-stack developer and data analyst with 30+ years of commercial IT experience across Ireland, the UK, the US, and India. MSc Data Science & Analytics (MTU, 2024). Based in Cork."
   />
   <meta property="og:image" content="https://aidandennehy.ie/adlogo-dark.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Aidan Dennehy - Cork Web Consultant" />
+  <meta property="og:site_name" content="Aidan Dennehy — Full-Stack Developer & Data Analyst" />
   <meta property="og:locale" content="en_IE" />
 
   <!-- Twitter -->
@@ -32,11 +32,11 @@
   <meta property="twitter:url" content="https://aidandennehy.ie" />
   <meta
     property="twitter:title"
-    content="Aidan Dennehy - Cork Web Consultant & Local SEO Expert"
+    content="Aidan Dennehy — Full-Stack Developer & Data Analyst"
   />
   <meta
     property="twitter:description"
-    content="Get found first on Google! Cork-based web consultant helping businesses dominate local search with 25+ years experience."
+    content="Full-stack developer and data analyst with 30+ years of commercial IT experience and an MSc in Data Science & Analytics from MTU. Based in Cork, Ireland."
   />
   <meta
     property="twitter:image"

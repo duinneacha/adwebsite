@@ -46,10 +46,10 @@
 </script>
 
 <svelte:head>
-  <title>About Aidan Dennehy | Cork Web Consultant</title>
+  <title>About Aidan Dennehy | Full-Stack Developer & Data Analyst</title>
   <meta
     name="description"
-    content="Learn about Aidan Dennehy, a Cork-based web consultant with 25+ years of experience in SEO, data, and modern websites."
+    content="35+ years of commercial IT delivery across Ireland, the UK, the US, and India. BSc Computer Science & Web Dev (MTU, 2021) · MSc Data Science & Analytics (MTU, 2024). Actively seeking employment."
   />
   <link rel="canonical" href="https://www.aidandennehy.ie/about" />
 </svelte:head>
@@ -113,96 +113,82 @@
       <div class="about-header">
         <h1 class="about-title">About Aidan Dennehy</h1>
         <p class="about-subtitle">
-          25+ Years of IT Experience • Cork Local • Your Trusted Tech Partner
+          35+ Years of Commercial IT Delivery • Cork-Based • Actively Seeking Employment
         </p>
       </div>
 
       <div class="about-content">
         <div class="about-story">
           <div class="story-section">
-            <h2>🚀 From Corporate IT to Local Business Champion</h2>
+            <h2>The Long Game</h2>
             <p>
-              After spending over two decades navigating the corporate IT world,
-              I discovered my true passion: helping local Cork businesses
-              harness the power of technology to grow and thrive. What started
-              as a career in enterprise systems evolved into a mission to make
-              advanced digital strategies accessible to every business in our
-              community.
+              I started writing code professionally in 1989. Since then I've built
+              payroll systems, MRP systems, plant maintenance reporting for Coal India,
+              audit management systems, project cost control systems in the USA, data
+              capture networks, CRM integrations, and full-stack web applications.
+              I've worked across Ireland, Europe, the UK, the USA, and India — in
+              startups, research centres, and large enterprises.
             </p>
           </div>
 
           <div class="story-section">
-            <h2>💡 Why I Do What I Do</h2>
+            <h2>Coming Back to Learn</h2>
             <p>
-              I've seen firsthand how the right technology can transform a
-              business. But I've also witnessed too many local companies
-              struggle with complex digital solutions that don't fit their
-              needs. That's why I focus on practical, results-driven approaches
-              that actually move the needle for Cork businesses.
+              In 2021 I completed a BSc in Computer Science & Web Development at MTU
+              Cork, and in 2024 an MSc in Data Science & Analytics — also at MTU.
+              I went back because I wanted formal grounding in the modern stack, not
+              just experience. The combination of 35 years of commercial delivery and
+              up-to-date academic qualifications is something most candidates simply
+              don't have.
             </p>
           </div>
 
           <div class="story-section">
-            <h2>🏠 Proudly Cork-Based</h2>
+            <h2>How I Work Now</h2>
             <p>
-              Born and raised in Cork, I understand our local market like no
-              outsider can. I know the challenges our businesses face, the
-              opportunities that exist, and how to position companies to
-              dominate their local search results. When you work with me, you're
-              getting someone who's as invested in Cork's success as you are.
-            </p>
-          </div>
-
-          <div class="story-section">
-            <h2>🎯 My Approach</h2>
-            <p>
-              I don't believe in one-size-fits-all solutions. Every business has
-              unique goals, challenges, and opportunities. That's why I take the
-              time to truly understand your business before recommending any
-              strategy. Whether it's getting you to the top of Google Maps,
-              building a website that converts visitors into customers, or
-              creating data insights that drive real decisions, everything I do
-              is tailored specifically for you.
+              I work across the full stack — Python, JavaScript, TypeScript, React,
+              Node.js, SQL, machine learning, data visualisation. I'm fluent with
+              modern AI-assisted development tools including Claude CLI, Cursor,
+              GitHub Copilot, and ChatGPT — not as a shortcut, but as a way to
+              deliver better work faster while keeping full understanding of what's
+              being built.
             </p>
           </div>
         </div>
 
         <div class="about-highlights">
           <div class="highlight-card">
-            <div class="highlight-icon">📈</div>
-            <h3>25+ Years Experience</h3>
-            <p>
-              Deep expertise in IT systems, data analysis, and digital strategy
-            </p>
+            <div class="highlight-icon">📅</div>
+            <h3>35+ Years Experience</h3>
+            <p>Commercial delivery from 1989 across four countries</p>
           </div>
 
           <div class="highlight-card">
-            <div class="highlight-icon">🎯</div>
-            <h3>Local SEO Specialist</h3>
-            <p>Helping Cork businesses dominate their local search results</p>
+            <div class="highlight-icon">🛠</div>
+            <h3>Full-Stack & Data</h3>
+            <p>Python, TypeScript, React, SQL, machine learning and more</p>
           </div>
 
           <div class="highlight-card">
-            <div class="highlight-icon">🤝</div>
-            <h3>Personal Service</h3>
-            <p>Direct access to me, not a team of junior staff</p>
+            <div class="highlight-icon">🤖</div>
+            <h3>AI-Fluent</h3>
+            <p>Daily use of Claude CLI, Cursor, Copilot and ChatGPT</p>
           </div>
 
           <div class="highlight-card">
-            <div class="highlight-icon">🔧</div>
-            <h3>Practical Solutions</h3>
-            <p>Technology that works for your business, not against it</p>
+            <div class="highlight-icon">🎓</div>
+            <h3>MSc & BSc from MTU</h3>
+            <p>Modern qualifications backed by real-world experience</p>
           </div>
         </div>
       </div>
 
       <div class="about-cta">
-        <h3>Ready to Transform Your Business?</h3>
+        <h3>Looking to hire or collaborate?</h3>
         <p>
-          Let's discuss how my experience can help your Cork business thrive
-          online.
+          Let's have a conversation about what you're trying to build.
         </p>
-        <a href="/#contact" class="about-button">Start the Conversation</a>
+        <a href="/#contact" class="about-button">Get In Touch</a>
       </div>
     </div>
   </section>
