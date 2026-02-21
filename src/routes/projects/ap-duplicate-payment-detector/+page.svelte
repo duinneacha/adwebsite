@@ -79,6 +79,9 @@
   $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
   $: logoWebpPath = isDark ? "/adlogo-dark.webp" : "/adlogo-light.webp";
 
+  let menuOpen = false;
+  function toggleMenu() { menuOpen = !menuOpen; }
+
   function emptyMapping(): ColumnMapping {
     return {
       vendorId: "",
@@ -327,6 +330,11 @@
       localStorage.setItem("theme", "dark");
     }
     applyTheme();
+    function handleClickOutside(e: MouseEvent) {
+      if (e.target instanceof Element && !e.target.closest('.nav')) menuOpen = false;
+    }
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
   });
 
   onDestroy(() => {
@@ -384,8 +392,35 @@
         {/if}
         <span style="font-size: 12px; margin-left: 4px;">{isDark ? "Dark" : "Light"}</span>
       </button>
+      <button
+        class="hamburger"
+        on:click={toggleMenu}
+        aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+      >
+        {#if menuOpen}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        {:else}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        {/if}
+      </button>
     </div>
   </div>
+  {#if menuOpen}
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="/" on:click={() => menuOpen = false}>Home</a></li>
+        <li><a href="/about" on:click={() => menuOpen = false}>About</a></li>
+        <li><a href="/services" on:click={() => menuOpen = false}>Services</a></li>
+        <li><a href="/projects" on:click={() => menuOpen = false}>Projects</a></li>
+        <li><a href="/#contact" on:click={() => menuOpen = false}>Contact</a></li>
+      </ul>
+    </div>
+  {/if}
 </nav>
 
 <main class="project-page">
@@ -963,7 +998,94 @@
     border: 1px solid var(--border-color);
   }
 
+  /* Hamburger — hidden on desktop */
+  .hamburger {
+    display: none;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text-primary);
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .hamburger:hover {
+    background: var(--bg-secondary);
+    border-color: var(--accent-color);
+  }
+
+  .hamburger:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  /* Mobile dropdown — hidden on desktop */
+  .mobile-menu {
+    display: none;
+  }
+
   @media (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+      align-items: stretch;
+      height: auto;
+    }
+
+    .nav .container {
+      height: var(--header-height);
+      padding: 0 16px;
+    }
+
+    .nav-right {
+      gap: 8px;
+    }
+
+    .links {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .mobile-menu {
+      display: block;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px 20px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a:focus {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border-left-color: var(--accent-color);
+      outline: none;
+    }
+
     .project-page {
       padding-top: 60px;
     }

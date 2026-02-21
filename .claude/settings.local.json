@@ -4,7 +4,8 @@
       "Bash(cd /d/AD_Projects_2025/adportsv && npx sharp-cli --input static/adlogo.png --output static/adlogo.webp --format webp --quality 85 2>&1 && npx sharp-cli --input static/adlogo-dark.png --output static/adlogo-dark.webp --format webp --quality 85 2>&1 && npx sharp-cli --input static/adlogo-light.png --output static/adlogo-light.webp --format webp --quality 85 2>&1)",
       "Bash(cd /d/AD_Projects_2025/adportsv && npx sharp-cli --input static/ballinacurra-pic.jpeg --output static/ballinacurra-pic.webp --format webp --quality 82 2>&1 && npx sharp-cli --input static/templecurraheen-pic.jpg --output static/templecurraheen-pic.webp --format webp --quality 82 2>&1)",
       "Bash(ls:*)",
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(grep:*)"
     ]
   }
 }
