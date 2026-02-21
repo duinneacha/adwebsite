@@ -12,7 +12,7 @@
   <title>Terms of Service for Web Consulting | Aidan Dennehy</title>
   <meta
     name="description"
-    content="Terms of service for Aidan Dennehy's web consulting services in Cork, Ireland, covering payments, responsibilities, and service conditions."
+    content="Terms of service for aidandennehy.ie — project agreements, responsibilities, and conditions."
   />
   <link rel="canonical" href="https://www.aidandennehy.ie/terms" />
 </svelte:head>

@@ -12,7 +12,7 @@
   <title>Privacy Policy | Aidan Dennehy</title>
   <meta
     name="description"
-    content="Privacy policy for Aidan Dennehy's web consulting services in Cork, Ireland, explaining what data we collect, use, and protect."
+    content="Privacy policy for aidandennehy.ie — how data submitted via the contact form is handled."
   />
   <link rel="canonical" href="https://www.aidandennehy.ie/privacy" />
 </svelte:head>

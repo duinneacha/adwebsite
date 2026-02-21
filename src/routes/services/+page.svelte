@@ -14,7 +14,6 @@
       localStorage.setItem("theme", "dark");
     }
     updateTheme();
-    console.log("Component mounted, theme:", isDark ? "dark" : "light");
   });
 
   if (typeof window !== "undefined") {
@@ -29,7 +28,6 @@
     isDark = !isDark;
     localStorage.setItem("theme", isDark ? "dark" : "light");
     updateTheme();
-    console.log("Theme toggled to:", isDark ? "dark" : "light");
   }
 
   function updateTheme() {
@@ -41,16 +39,11 @@
       } else {
         htmlElement.classList.add("light-theme");
       }
-      console.log(
-        "Theme updated, isDark:",
-        isDark,
-        "Applied class:",
-        isDark ? "dark-theme" : "light-theme",
-      );
     }
   }
 
   $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
+  $: logoWebpPath = isDark ? "/adlogo-dark.webp" : "/adlogo-light.webp";
 </script>
 
 <svelte:head>
@@ -65,7 +58,10 @@
 <nav class="nav">
   <div class="container">
     <div class="brand">
-      <img src={logoPath} alt="AD Logo" class="logo" />
+      <picture>
+        <source srcset={logoWebpPath} type="image/webp" />
+        <img src={logoPath} alt="AD Logo" class="logo" />
+      </picture>
       <span>AD</span>
     </div>
     <div class="nav-right">

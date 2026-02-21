@@ -43,6 +43,7 @@
   }
 
   $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
+  $: logoWebpPath = isDark ? "/adlogo-dark.webp" : "/adlogo-light.webp";
 </script>
 
 <svelte:head>
@@ -57,7 +58,10 @@
 <nav class="nav">
   <div class="container">
     <div class="brand">
-      <img src={logoPath} alt="AD Logo" class="logo" />
+      <picture>
+        <source srcset={logoWebpPath} type="image/webp" />
+        <img src={logoPath} alt="AD Logo" class="logo" />
+      </picture>
       <span>AD</span>
     </div>
     <div class="nav-right">

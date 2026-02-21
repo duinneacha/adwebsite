@@ -12,7 +12,7 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aidandennehy.ie" />
+  <meta property="og:url" content="https://www.aidandennehy.ie" />
   <meta
     property="og:title"
     content="Aidan Dennehy — Full-Stack Developer & Data Analyst"
@@ -21,7 +21,7 @@
     property="og:description"
     content="Full-stack developer and data analyst with 30+ years of commercial IT experience across Ireland, the UK, the US, and India. MSc Data Science & Analytics (MTU, 2024). Based in Cork."
   />
-  <meta property="og:image" content="https://aidandennehy.ie/adlogo-dark.png" />
+  <meta property="og:image" content="https://www.aidandennehy.ie/adlogo-dark.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Aidan Dennehy — Full-Stack Developer & Data Analyst" />
@@ -29,7 +29,7 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://aidandennehy.ie" />
+  <meta property="twitter:url" content="https://www.aidandennehy.ie" />
   <meta
     property="twitter:title"
     content="Aidan Dennehy — Full-Stack Developer & Data Analyst"
@@ -40,8 +40,31 @@
   />
   <meta
     property="twitter:image"
-    content="https://aidandennehy.ie/adlogo-dark.png"
+    content="https://www.aidandennehy.ie/adlogo-dark.png"
   />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aidan Dennehy",
+    "url": "https://www.aidandennehy.ie",
+    "email": "duinneacha@gmail.com",
+    "jobTitle": "Full-Stack Developer & Data Analyst",
+    "description": "Full-stack developer and data analyst with 35+ years of commercial IT experience. MSc Data Science & Analytics (MTU, 2024).",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Carrigtwohill",
+      "addressRegion": "Cork",
+      "addressCountry": "IE"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Munster Technological University" }
+    ],
+    "knowsAbout": ["Python", "TypeScript", "React", "Node.js", "SQL", "Machine Learning", "Data Analysis", "SvelteKit", "FastAPI"]
+  }
+  </script>
 
   <!-- Additional SEO Meta Tags -->
   <meta name="robots" content="index, follow" />

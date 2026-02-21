@@ -43,10 +43,11 @@
   }
 
   $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
+  $: logoWebpPath = isDark ? "/adlogo-dark.webp" : "/adlogo-light.webp";
 </script>
 
 <svelte:head>
-  <title>Projects | Cork Web Consultant | Aidan Dennehy</title>
+  <title>Projects | Aidan Dennehy — Full-Stack Developer & Data Analyst</title>
   <meta
     name="description"
     content="Selected projects including data analysis tools and heritage websites. Explore case studies and live work by Aidan Dennehy."
@@ -57,7 +58,10 @@
 <nav class="nav">
   <div class="container">
     <div class="brand">
-      <img src={logoPath} alt="AD Logo" class="logo" />
+      <picture>
+        <source srcset={logoWebpPath} type="image/webp" />
+        <img src={logoPath} alt="AD Logo" class="logo" />
+      </picture>
       <span>AD</span>
     </div>
     <div class="nav-right">
@@ -136,7 +140,10 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
+          <picture>
+            <source srcset="/templecurraheen-pic.webp" type="image/webp" />
+            <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
+          </picture>
         </div>
         <h2>Templecurraheen Graveyard Website</h2>
         <p class="project-subtitle">Digital Heritage Documentation Project</p>
@@ -171,7 +178,10 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
+          <picture>
+            <source srcset="/ballinacurra-pic.webp" type="image/webp" />
+            <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
+          </picture>
         </div>
         <h2>Old Ballinacurra Graveyard Website</h2>
         <p class="project-subtitle">Community Heritage Memorial Site</p>
