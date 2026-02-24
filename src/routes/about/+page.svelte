@@ -1,668 +1,221 @@
-<script>
-  import { onMount } from "svelte";
-
-  let isDark = true;
-  let mounted = false;
-
-  onMount(() => {
-    mounted = true;
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      isDark = savedTheme === "dark";
-    } else {
-      isDark = true;
-      localStorage.setItem("theme", "dark");
-    }
-    updateTheme();
-    /** @param {MouseEvent} e */
-    function handleClickOutside(e) {
-      if (e.target instanceof Element && !e.target.closest('.nav')) menuOpen = false;
-    }
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  });
-
-  if (typeof window !== "undefined") {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      isDark = savedTheme === "dark";
-    }
-  }
-
-  function toggleTheme() {
-    if (!mounted) return;
-    isDark = !isDark;
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    updateTheme();
-  }
-
-  function updateTheme() {
-    if (typeof document !== "undefined" && document.documentElement) {
-      const htmlElement = document.documentElement;
-      htmlElement.classList.remove("light-theme", "dark-theme");
-      if (isDark) {
-        htmlElement.classList.add("dark-theme");
-      } else {
-        htmlElement.classList.add("light-theme");
-      }
-    }
-  }
-
-  $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
-  $: logoWebpPath = isDark ? "/adlogo-dark.webp" : "/adlogo-light.webp";
-
-  let menuOpen = false;
-  function toggleMenu() { menuOpen = !menuOpen; }
-</script>
-
 <svelte:head>
   <title>About Aidan Dennehy | Full-Stack Developer & Data Analyst</title>
-  <meta
-    name="description"
-    content="35+ years of commercial IT delivery across Ireland, the UK, the US, and India. BSc Computer Science & Web Dev (MTU, 2021) · MSc Data Science & Analytics (MTU, 2024). Actively seeking employment."
-  />
+  <meta name="description" content="35+ years of commercial IT delivery across Ireland, the UK, the US, and India. BSc Computer Science & Web Dev (MTU, 2021) · MSc Data Science & Analytics (MTU, 2024). Actively seeking employment." />
   <link rel="canonical" href="https://www.aidandennehy.ie/about" />
 </svelte:head>
 
-<nav class="nav">
-  <div class="container">
-    <div class="brand">
-      <picture>
-        <source srcset={logoWebpPath} type="image/webp" />
-        <img src={logoPath} alt="AD Logo" class="logo" />
-      </picture>
-      <span>AD</span>
+<div class="page-wrap">
+
+  <header class="page-header">
+    <div class="header-inner">
+      <div class="page-eyebrow">✦ About</div>
+      <h1 class="page-title">Aidan<br /><em>Dennehy.</em></h1>
+      <p class="page-sub">35+ years of commercial IT delivery · Cork-based · Actively seeking employment</p>
     </div>
-    <div class="nav-right">
-      <ul class="links">
-        <li><a href="/#home">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
-      <button
-        class="theme-toggle"
-        on:click={toggleTheme}
-        aria-label="Toggle theme"
-      >
-        {#if isDark}
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="12" r="5" />
-            <path
-              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-            />
-          </svg>
-        {:else}
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        {/if}
-        <span style="font-size: 12px; margin-left: 4px;"
-          >{isDark ? "Dark" : "Light"}</span
-        >
-      </button>
-      <button
-        class="hamburger"
-        on:click={toggleMenu}
-        aria-label="Toggle navigation"
-        aria-expanded={menuOpen}
-      >
-        {#if menuOpen}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        {:else}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        {/if}
-      </button>
-    </div>
-  </div>
-  {#if menuOpen}
-    <div class="mobile-menu">
-      <ul>
-        <li><a href="/" on:click={() => menuOpen = false}>Home</a></li>
-        <li><a href="/about" on:click={() => menuOpen = false}>About</a></li>
-        <li><a href="/services" on:click={() => menuOpen = false}>Services</a></li>
-        <li><a href="/projects" on:click={() => menuOpen = false}>Projects</a></li>
-        <li><a href="/#contact" on:click={() => menuOpen = false}>Contact</a></li>
-      </ul>
-    </div>
-  {/if}
-</nav>
+  </header>
 
-<main class="about-page">
-  <section class="about-section">
-    <div class="about-container">
-      <div class="about-header">
-        <h1 class="about-title">About Aidan Dennehy</h1>
-        <p class="about-subtitle">
-          35+ Years of Commercial IT Delivery • Cork-Based • Actively Seeking Employment
-        </p>
-      </div>
-
-      <div class="about-content">
-        <div class="about-story">
-          <div class="story-section">
-            <h2>The Long Game</h2>
-            <p>
-              I started writing code professionally in 1989. Since then I've built
-              payroll systems, MRP systems, plant maintenance reporting for Coal India,
-              audit management systems, project cost control systems in the USA, data
-              capture networks, CRM integrations, and full-stack web applications.
-              I've worked across Ireland, Europe, the UK, the USA, and India — in
-              startups, research centres, and large enterprises.
-            </p>
-          </div>
-
-          <div class="story-section">
-            <h2>Coming Back to Learn</h2>
-            <p>
-              In 2021 I completed a BSc in Computer Science & Web Development at MTU
-              Cork, and in 2024 an MSc in Data Science & Analytics — also at MTU.
-              I went back because I wanted formal grounding in the modern stack, not
-              just experience. The combination of 35 years of commercial delivery and
-              up-to-date academic qualifications is something most candidates simply
-              don't have.
-            </p>
-          </div>
-
-          <div class="story-section">
-            <h2>How I Work Now</h2>
-            <p>
-              I work across the full stack — Python, JavaScript, TypeScript, React,
-              Node.js, SQL, machine learning, data visualisation. I'm fluent with
-              modern AI-assisted development tools including Claude CLI, Cursor,
-              GitHub Copilot, and ChatGPT — not as a shortcut, but as a way to
-              deliver better work faster while keeping full understanding of what's
-              being built.
-            </p>
-          </div>
+  <!-- Story sections -->
+  <section class="site-section">
+    <div class="section-inner story-grid">
+      <div class="story-col">
+        <div class="story-block">
+          <div class="section-label">✦ The Long Game</div>
+          <h2 class="story-heading">Started in 1989.<br />Still building.</h2>
+          <p class="story-body">
+            I started writing code professionally in 1989. Since then I've built payroll systems, MRP systems, plant maintenance reporting for Coal India, audit management systems, project cost control systems in the USA, data capture networks, CRM integrations, and full-stack web applications. I've worked across Ireland, Europe, the UK, the USA, and India — in startups, research centres, and large enterprises.
+          </p>
         </div>
 
-        <div class="about-highlights">
-          <div class="highlight-card">
-            <div class="highlight-icon">📅</div>
-            <h3>35+ Years Experience</h3>
-            <p>Commercial delivery from 1989 across four countries</p>
-          </div>
+        <div class="story-block">
+          <div class="section-label">✦ Back to Learn</div>
+          <h2 class="story-heading">Experience plus<br /><em>formal qualifications.</em></h2>
+          <p class="story-body">
+            In 2021 I completed a BSc in Computer Science &amp; Web Development at MTU Cork, and in 2024 an MSc in Data Science &amp; Analytics — also at MTU. I went back because I wanted formal grounding in the modern stack, not just experience. The combination of 35 years of commercial delivery and up-to-date academic qualifications is something most candidates simply don't have.
+          </p>
+        </div>
 
-          <div class="highlight-card">
-            <div class="highlight-icon">🛠</div>
-            <h3>Full-Stack & Data</h3>
-            <p>Python, TypeScript, React, SQL, machine learning and more</p>
-          </div>
-
-          <div class="highlight-card">
-            <div class="highlight-icon">🤖</div>
-            <h3>AI-Fluent</h3>
-            <p>Daily use of Claude CLI, Cursor, Copilot and ChatGPT</p>
-          </div>
-
-          <div class="highlight-card">
-            <div class="highlight-icon">🎓</div>
-            <h3>MSc & BSc from MTU</h3>
-            <p>Modern qualifications backed by real-world experience</p>
-          </div>
+        <div class="story-block">
+          <div class="section-label">✦ How I Work Now</div>
+          <h2 class="story-heading">AI-fluent,<br /><em>full-stack.</em></h2>
+          <p class="story-body">
+            I work across the full stack — Python, JavaScript, TypeScript, React, Node.js, SQL, machine learning, data visualisation. I'm fluent with modern AI-assisted development tools including Claude Code, Cursor, and GitHub Copilot — not as a shortcut, but as a way to deliver better work faster while keeping full understanding of what's being built.
+          </p>
         </div>
       </div>
 
-      <div class="about-cta">
-        <h3>Looking to hire or collaborate?</h3>
-        <p>
-          Let's have a conversation about what you're trying to build.
-        </p>
-        <a href="/#contact" class="about-button">Get In Touch</a>
+      <div class="highlights-col">
+        <div class="highlight-card">
+          <div class="hl-num">35<em>+</em></div>
+          <div class="hl-label">Years Experience</div>
+          <p class="hl-note">Commercial delivery from 1989 across four countries</p>
+        </div>
+        <div class="highlight-card">
+          <div class="hl-num">BSc<em>+</em>MSc</div>
+          <div class="hl-label">MTU Qualifications</div>
+          <p class="hl-note">Computer Science (2021) and Data Science &amp; Analytics (2024)</p>
+        </div>
+        <div class="highlight-card">
+          <div class="hl-num">AI<em>.</em></div>
+          <div class="hl-label">AI-Fluent</div>
+          <p class="hl-note">Daily use of Claude Code, Cursor, Copilot in production workflows</p>
+        </div>
+        <div class="highlight-card">
+          <div class="hl-num"><em>4</em></div>
+          <div class="hl-label">Countries</div>
+          <p class="hl-note">Ireland, UK, USA, India — enterprise and startup environments</p>
+        </div>
       </div>
     </div>
   </section>
-</main>
+
+  <!-- CTA -->
+  <section class="site-section">
+    <div class="section-inner cta-section">
+      <div class="cta-left">
+        <div class="section-label">✦ Next Step</div>
+        <h2 class="section-title">Looking to hire<br />or collaborate?</h2>
+        <p class="section-note">Let's have a conversation about what you're trying to build.</p>
+      </div>
+      <div class="cta-right">
+        <a href="/#contact" class="cta-btn">Get in touch →</a>
+        <a href="https://www.linkedin.com/in/aidan-dennehy-bsc-msc-cork" target="_blank" rel="noopener" class="cta-btn-outline">View LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="foot-brand">Aidan<span class="foot-brand-dot">.</span></div>
+    <div class="foot-social">
+      <a class="foot-social-link" href="https://www.linkedin.com/in/aidan-dennehy-bsc-msc-cork" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="foot-social-link" href="https://github.com/duinneacha" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-note">© 2025 Aidan Dennehy · Carrigtwohill, Cork</div>
+  </footer>
+
+</div>
 
 <style>
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(17, 24, 39, 0.9);
-    backdrop-filter: saturate(180%) blur(10px);
-    border-bottom: 1px solid var(--border-color);
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-  }
+  .page-wrap { position: relative; z-index: 1; }
 
-  :global(.light-theme) .nav {
-    background: rgba(255, 255, 255, 0.9);
-  }
+  .header-inner { max-width: 1200px; margin: 0 auto; padding: 72px 64px 56px; }
+  .page-title { font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.92; color: var(--ink); margin-bottom: 20px; }
+  .page-title em { font-style: normal; color: var(--red); }
+  .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); font-weight: 800; margin-bottom: 20px; }
+  .page-sub { font-size: 1rem; color: var(--ink-dim); max-width: 480px; line-height: 1.65; }
+  .page-header { border-bottom: 1px solid var(--ink-rule); }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    width: 100%;
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 80px;
+    align-items: start;
+  }
+  .story-col { display: flex; flex-direction: column; gap: 56px; }
+  .story-block {}
+  .story-heading {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    line-height: 1.0;
+    margin: 12px 0 18px;
+  }
+  .story-heading em { font-style: normal; color: var(--red); }
+  .story-body { font-size: 1rem; color: var(--ink-dim); line-height: 1.75; }
+
+  .highlights-col { display: flex; flex-direction: column; gap: 1px; }
+  .highlight-card {
+    background: var(--ink-faint);
+    border: 1px solid var(--ink-rule);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .highlight-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0;
+    background: var(--red);
+    transition: width 0.3s ease;
+  }
+  .highlight-card:hover { background: var(--red-dim); }
+  .highlight-card:hover::before { width: 3px; }
+  .hl-num {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hl-num em { font-style: normal; color: var(--red); }
+  .hl-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .hl-note { font-size: 0.82rem; color: var(--ink-dim); line-height: 1.5; margin: 0; }
+
+  .cta-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .theme-toggle {
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 8px;
-    cursor: pointer;
-    color: var(--text-primary);
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .theme-toggle:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-color);
-  }
-
-  .theme-toggle:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
-
-  .brand {
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logo {
-    height: 40px;
-    width: auto;
-    transition: opacity 0.3s ease;
-  }
-
-  .links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    padding: 6px 8px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-  }
-
-  .links a:hover,
-  .links a:focus {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-  }
-
-  .about-page {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 80px 16px 80px;
-  }
-
-  .about-section {
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 40px;
-  }
-
-  .about-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .about-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
-  .about-title {
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    margin: 0 0 16px;
-    font-weight: 700;
-  }
-
-  .about-subtitle {
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    margin: 0;
-    font-weight: 600;
-  }
-
-  .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 48px;
-    margin-bottom: 48px;
   }
-
-  .about-story {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .story-section h2 {
-    font-size: 1.3rem;
-    color: var(--accent-color);
-    margin: 0 0 16px;
-    font-weight: 600;
-  }
-
-  .story-section p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-    font-size: 1rem;
-  }
-
-  .about-highlights {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .highlight-card {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .highlight-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .highlight-icon {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
+  .cta-right { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+  .cta-btn {
     display: block;
-  }
-
-  .highlight-card h3 {
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    margin: 0 0 8px;
-    font-weight: 600;
-  }
-
-  .highlight-card p {
-    color: var(--text-muted);
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .about-cta {
-    background: linear-gradient(
-      135deg,
-      var(--bg-card) 0%,
-      var(--bg-secondary) 100%
-    );
-    border: 2px solid var(--accent-color);
-    border-radius: 16px;
-    padding: 32px;
+    background: var(--red);
+    color: #fff;
+    padding: 16px 40px;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
   }
-
-  .about-cta h3 {
-    font-size: 1.6rem;
-    color: var(--text-primary);
-    margin: 0 0 12px;
+  .cta-btn:hover { filter: brightness(1.1); }
+  .cta-btn-outline {
+    display: block;
+    background: transparent;
+    color: var(--ink-dim);
+    padding: 16px 40px;
     font-weight: 700;
-  }
-
-  .about-cta p {
-    color: var(--text-secondary);
-    margin: 0 0 24px;
-    font-size: 1.1rem;
-  }
-
-  .about-button {
-    display: inline-block;
-    background: linear-gradient(
-      135deg,
-      var(--accent-color) 0%,
-      var(--accent-hover) 100%
-    );
-    color: white;
-    padding: 16px 32px;
-    border-radius: 50px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-    transition: all 0.3s ease;
+    border: 1px solid var(--ink-rule);
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-align: center;
+    white-space: nowrap;
   }
+  .cta-btn-outline:hover { border-color: var(--ink-muted); color: var(--ink); }
 
-  .about-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
-    text-decoration: none;
+  @media (max-width: 1024px) {
+    .header-inner { padding: 56px 40px 44px; }
+    .story-grid { gap: 48px; }
   }
-
   @media (max-width: 900px) {
-    .about-content {
-      grid-template-columns: 1fr;
-    }
+    .header-inner { padding: 48px 24px 36px; }
+    .story-grid { grid-template-columns: 1fr; gap: 0; }
+    .highlights-col { flex-direction: row; flex-wrap: wrap; margin-top: 0; }
+    .highlight-card { flex: 1; min-width: 180px; }
+    .cta-section { flex-direction: column; align-items: flex-start; }
+    .cta-right { flex-direction: row; flex-wrap: wrap; }
   }
-
-  /* Hamburger — hidden on desktop */
-  .hamburger {
-    display: none;
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 0;
-    cursor: pointer;
-    color: var(--text-primary);
-    width: 36px;
-    height: 36px;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-  }
-
-  .hamburger:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-color);
-  }
-
-  .hamburger:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
-
-  /* Mobile dropdown — hidden on desktop */
-  .mobile-menu {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .nav {
-      flex-direction: column;
-      align-items: stretch;
-      height: auto;
-    }
-
-    .nav .container {
-      height: var(--header-height);
-      padding: 0 16px;
-    }
-
-    .nav-right {
-      gap: 8px;
-    }
-
-    .links {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .mobile-menu {
-      display: block;
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-color);
-    }
-
-    .mobile-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 8px 0 12px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-menu a {
-      display: block;
-      padding: 12px 20px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background-color 0.15s ease, color 0.15s ease;
-      border-left: 3px solid transparent;
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a:focus {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border-left-color: var(--accent-color);
-      outline: none;
-    }
-
-    .about-page {
-      padding: 60px 12px 60px;
-    }
-
-    .about-title {
-      font-size: 2rem;
-    }
-
-    .about-subtitle {
-      font-size: 1rem;
-    }
-
-    .about-story {
-      gap: 24px;
-    }
-
-    .story-section h2 {
-      font-size: 1.2rem;
-    }
-
-    .story-section p {
-      font-size: 0.95rem;
-    }
-
-    .highlight-card {
-      padding: 20px;
-    }
-
-    .highlight-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .about-cta {
-      padding: 24px;
-    }
-
-    .about-cta h3 {
-      font-size: 1.4rem;
-    }
-
-    .about-cta p {
-      font-size: 1rem;
-    }
-
-    .about-button {
-      width: 100%;
-      padding: 14px 24px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .about-title {
-      font-size: 1.8rem;
-    }
-
-    .about-subtitle {
-      font-size: 0.95rem;
-    }
-
-    .story-section h2 {
-      font-size: 1.1rem;
-    }
-
-    .story-section p {
-      font-size: 0.9rem;
-    }
-
-    .highlight-card {
-      padding: 16px;
-    }
-
-    .highlight-icon {
-      font-size: 1.8rem;
-    }
-
-    .highlight-card h3 {
-      font-size: 1rem;
-    }
-
-    .highlight-card p {
-      font-size: 0.85rem;
-    }
-
-    .about-cta {
-      padding: 20px;
-    }
-
-    .about-cta h3 {
-      font-size: 1.3rem;
-    }
+  @media (max-width: 600px) {
+    .cta-right { flex-direction: column; width: 100%; }
+    .cta-btn, .cta-btn-outline { text-align: center; }
   }
 </style>

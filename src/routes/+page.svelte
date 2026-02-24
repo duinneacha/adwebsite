@@ -1,1051 +1,609 @@
-<script>
-  // Logo is now in static folder, accessed directly via URL
-  import { onMount } from "svelte";
-
-  let isDark = true;
-  let mounted = false;
-
-  onMount(() => {
-    mounted = true;
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      isDark = savedTheme === "dark";
-    } else {
-      // Default to dark theme if no preference saved
-      isDark = true;
-      localStorage.setItem("theme", "dark");
-    }
-    updateTheme();
-    /** @param {MouseEvent} e */
-    function handleClickOutside(e) {
-      if (e.target instanceof Element && !e.target.closest('.nav')) menuOpen = false;
-    }
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  });
-
-  // Initialize theme on client side only after component loads
-  if (typeof window !== "undefined") {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      isDark = savedTheme === "dark";
-    }
-  }
-
-  function toggleTheme() {
-    if (!mounted) return;
-    isDark = !isDark;
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    updateTheme();
-  }
-
-  function updateTheme() {
-    if (typeof document !== "undefined" && document.documentElement) {
-      const htmlElement = document.documentElement;
-      // Force remove both classes first to ensure clean state
-      htmlElement.classList.remove("light-theme", "dark-theme");
-
-      // Add the appropriate class
-      if (isDark) {
-        htmlElement.classList.add("dark-theme");
-      } else {
-        htmlElement.classList.add("light-theme");
-      }
-
-    }
-  }
-
-  // Dynamic logo based on theme
-  $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
-  $: logoWebpPath = isDark ? "/adlogo-dark.webp" : "/adlogo-light.webp";
-
-  let menuOpen = false;
-  function toggleMenu() { menuOpen = !menuOpen; }
-</script>
-
 <svelte:head>
   <title>Aidan Dennehy — Full-Stack Developer & Data Analyst</title>
-  <meta
-    name="description"
-    content="Full-stack developer and data analyst with 30+ years of commercial IT experience. MSc Data Science & Analytics (MTU, 2024). Based in Carrigtwohill, Cork. Actively seeking employment."
-  />
+  <meta name="description" content="Full-stack developer and data analyst with 30+ years of commercial IT experience. MSc Data Science & Analytics (MTU, 2024). Based in Carrigtwohill, Cork. Actively seeking employment." />
   <link rel="canonical" href="https://www.aidandennehy.ie/" />
 </svelte:head>
 
-<nav class="nav">
-  <div class="container">
-    <div class="brand">
-      <picture>
-        <source srcset={logoWebpPath} type="image/webp" />
-        <img src={logoPath} alt="AD Logo" class="logo" />
-      </picture>
-      <span>AD</span>
+<div class="page-wrap">
+
+  <!-- ═══ HERO ═══ -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="kicker">
+        <span class="kicker-dot"></span>
+        Available for hire · Cork, Ireland
+      </div>
+
+      <div class="headline-block">
+        <span class="h-line h-solid">FULL-STACK</span>
+        <span class="h-line h-red">DEVELOPER.</span>
+        <span class="h-line h-outline">DATA ANALYST.</span>
+      </div>
+
+      <div class="hero-divider">
+        <div class="hdl hdl-left"></div>
+        <div class="hdt">30+ years commercial IT · MSc Data Science &amp; Analytics, MTU · Cork, Ireland</div>
+        <div class="hdl hdl-right"></div>
+      </div>
+
+      <div class="hero-bottom">
+        <p class="hero-sub">
+          I've built enterprise systems across Ireland, the UK, the US, and India. MSc in Data Science &amp; Analytics from MTU (2024). Fluent with modern AI-assisted development — Cursor, Claude Code, Copilot — and actively seeking my next role.
+        </p>
+        <div class="hero-ctas">
+          <a class="cta-primary" href="#contact">Get in touch →</a>
+          <a class="cta-secondary" href="#how-i-work">See how I work</a>
+        </div>
+      </div>
     </div>
-    <div class="nav-right">
-      <ul class="links">
-        <li><a href="/#home">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
-      <button
-        class="theme-toggle"
-        on:click={toggleTheme}
-        aria-label="Toggle theme"
-      >
-        {#if isDark}
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="12" r="5" />
-            <path
-              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-            />
-          </svg>
-        {:else}
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        {/if}
-        <span style="font-size: 12px; margin-left: 4px;"
-          >{isDark ? "Dark" : "Light"}</span
-        >
-      </button>
-      <button
-        class="hamburger"
-        on:click={toggleMenu}
-        aria-label="Toggle navigation"
-        aria-expanded={menuOpen}
-      >
-        {#if menuOpen}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        {:else}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        {/if}
-      </button>
+  </section>
+
+  <!-- ═══ FACT STRIP ═══ -->
+  <div class="fact-strip">
+    <div class="fact">
+      <div class="fact-big">30<em>+</em></div>
+      <div class="fact-small">Years commercial IT</div>
+    </div>
+    <div class="fact">
+      <div class="fact-big"><em>4</em></div>
+      <div class="fact-small">Countries worked in</div>
+    </div>
+    <div class="fact">
+      <div class="fact-big">MSc<em>.</em></div>
+      <div class="fact-small">Data Science &amp; Analytics</div>
+    </div>
+    <div class="fact">
+      <div class="fact-big">∞</div>
+      <div class="fact-small">Problems solved</div>
     </div>
   </div>
-  {#if menuOpen}
-    <div class="mobile-menu">
-      <ul>
-        <li><a href="/#home" on:click={() => menuOpen = false}>Home</a></li>
-        <li><a href="/about" on:click={() => menuOpen = false}>About</a></li>
-        <li><a href="/services" on:click={() => menuOpen = false}>Services</a></li>
-        <li><a href="/projects" on:click={() => menuOpen = false}>Projects</a></li>
-        <li><a href="/#contact" on:click={() => menuOpen = false}>Contact</a></li>
-      </ul>
-    </div>
-  {/if}
-</nav>
 
-<main>
-  <section id="home" class="section hero-section">
-    <div class="hero">
-      <picture>
-        <source srcset={logoWebpPath} type="image/webp" />
-        <img src={logoPath} alt="AD Logo" class="hero-logo" />
-      </picture>
-      <h1 class="hero-title">
-        30+ years of commercial IT experience — now formally qualified in full-stack development and data science.
-      </h1>
-      <p class="hero-subtitle-text">
-        I've built enterprise systems across Ireland, the UK, the US, and India. I recently completed an MSc in Data Science & Analytics at MTU. I'm actively seeking my next role in full-stack development, data analysis, or both.
-      </p>
-      <div class="hero-actions">
-        <a class="cta-button" href="#contact">Get in touch</a>
-        <a class="cta-button secondary" href="#how-i-work">See how I work</a>
+  <!-- ═══ HOW I WORK ═══ -->
+  <section id="how-i-work" class="site-section">
+    <div class="section-inner process-section">
+      <div class="process-header">
+        <div>
+          <div class="section-label">✦ Process &nbsp;·&nbsp; AI-augmented</div>
+          <h2 class="section-title">How I work</h2>
+        </div>
+        <p class="section-note">Most projects go wrong because goals were never properly nailed down. I start with clarity, then build — with AI doing the heavy lifting where it earns its keep.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="how-i-work" class="section">
-    <div class="content-block">
-      <h2 class="section-title">How I work</h2>
-      <p class="section-intro">
-        Most projects go wrong because goals and requirements were never
-        properly nailed down. I start with clarity, then build.
-      </p>
       <div class="process-grid">
-        <div class="process-card">
-          <span class="process-step">1</span>
-          <h3>Discovery</h3>
-          <p>
-            Understand the business, constraints, and what “success” means.
-          </p>
+        <div class="process-item">
+          <div class="p-num">01</div>
+          <div class="p-accent"></div>
+          <div class="p-title">Discovery</div>
+          <p class="p-desc">Understand the business, constraints, and what "success" actually means before touching a keyboard.</p>
         </div>
-        <div class="process-card">
-          <span class="process-step">2</span>
-          <h3>Requirements</h3>
-          <p>Define scope, priorities, and what we’re not doing.</p>
+        <div class="process-item">
+          <div class="p-num">02</div>
+          <div class="p-accent"></div>
+          <div class="p-title">Requirements</div>
+          <p class="p-desc">Define scope, priorities, and what we're not doing. AI-assisted analysis surfaces edge cases and gaps early.</p>
         </div>
-        <div class="process-card">
-          <span class="process-step">3</span>
-          <h3>Prototype</h3>
-          <p>Early working version to validate direction fast.</p>
+        <div class="process-item">
+          <div class="p-num">03</div>
+          <div class="p-accent"></div>
+          <div class="p-title">Prototype</div>
+          <p class="p-desc">Working version in hours, not weeks. I use Cursor and Claude Code to compress the gap between idea and evidence.</p>
         </div>
-        <div class="process-card">
-          <span class="process-step">4</span>
-          <h3>Build & iterate</h3>
-          <p>Steady delivery with transparent updates.</p>
+        <div class="process-item">
+          <div class="p-num">04</div>
+          <div class="p-accent"></div>
+          <div class="p-title">Build &amp; iterate</div>
+          <p class="p-desc">AI-augmented development with Cursor and Claude Code. Faster iteration, tighter code, no surprises at the end.</p>
         </div>
-        <div class="process-card">
-          <span class="process-step">5</span>
-          <h3>Handover & support</h3>
-          <p>Documentation, maintenance options, next steps.</p>
+        <div class="process-item">
+          <div class="p-num">05</div>
+          <div class="p-accent"></div>
+          <div class="p-title">Handover</div>
+          <p class="p-desc">Clean documentation and a clear path forward — including where AI tooling is baked in and how to maintain it.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="content-block">
-      <h2 class="section-title">Why this approach works</h2>
-      <div class="benefit-grid">
-        <div class="benefit-card">
-          <span class="benefit-icon">🔄</span>
-          <p>Reduces rework and scope drift</p>
-        </div>
-        <div class="benefit-card">
-          <span class="benefit-icon">📅</span>
-          <p>Makes cost and timelines more predictable</p>
-        </div>
-        <div class="benefit-card">
-          <span class="benefit-icon">🏗</span>
-          <p>Produces clearer, maintainable systems</p>
-        </div>
-        <div class="benefit-card">
-          <span class="benefit-icon">🎯</span>
-          <p>Keeps decisions tied to business value</p>
-        </div>
-      </div>
-      <p class="credibility-line">
-        I’m an experienced full-stack developer and data analyst with 30+ years of commercial IT experience across Ireland, the UK, the US, and India — with formal qualifications in computer science and data science from MTU.
-      </p>
+  <!-- ═══ SKILLS STRIP ═══ -->
+  <div class="skills-strip">
+    <span class="skills-label">AI Tooling</span>
+    <div class="skills-divider"></div>
+    <div class="skills-list">
+      <span class="skill-tag skill-ai">Claude Code</span>
+      <span class="skill-tag skill-ai">Cursor</span>
+      <span class="skill-tag skill-ai">GitHub Copilot</span>
+      <span class="skill-tag skill-ai">AI-assisted Analysis</span>
+      <span class="skill-tag skill-ai">Rapid Prototyping</span>
     </div>
-  </section>
+    <div class="skills-divider"></div>
+    <span class="skills-label">Stack</span>
+    <div class="skills-divider"></div>
+    <div class="skills-list">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">TypeScript</span>
+      <span class="skill-tag">SvelteKit</span>
+      <span class="skill-tag">React</span>
+      <span class="skill-tag">Node.js</span>
+      <span class="skill-tag">FastAPI</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">Machine Learning</span>
+    </div>
+  </div>
 
-  <section id="contact" class="section">
-    <div class="contact-container">
-      <div class="contact-header">
-        <h2 class="contact-title">Get In Touch</h2>
-        <p class="contact-subtitle">
-          Whether you’re looking to hire an experienced developer, have a project to discuss, or just want to connect — I’d love to hear from you. Review the
-          <a href="/privacy">Privacy Policy</a> and
-          <a href="/cookies">Cookie Policy</a> for details on how this site handles your data.
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="site-section">
+    <div class="section-inner contact-inner">
+      <div class="contact-left">
+        <h2 class="contact-title">Let's work<br /><em>together.</em></h2>
+        <p class="contact-sub">
+          Whether you're looking to hire an experienced developer, have a project to discuss, or just want to connect — I'd love to hear from you.
+        </p>
+        <div class="contact-links">
+          <a class="contact-social" href="https://www.linkedin.com/in/aidan-dennehy-bsc-msc-cork" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a class="contact-social" href="https://github.com/duinneacha" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+        <p class="privacy-note">
+          Review the <a href="/privacy">Privacy Policy</a> and <a href="/cookies">Cookie Policy</a> for details on how this site handles your data.
         </p>
       </div>
 
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <h3>📧 Email Me Directly</h3>
-            <p>
-              <a href="mailto:duinneacha@gmail.com" class="contact-link"
-                >duinneacha@gmail.com</a
-              >
-            </p>
+      <div class="contact-right">
+        <form class="contact-form" action="https://formspree.io/f/mvzbggar" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" required placeholder="John Smith" />
           </div>
-
-          <div class="contact-item">
-            <h3>🚀 Quick Response</h3>
-            <p>
-              I typically respond within 24 hours. I'm open to permanent positions,
-              contract work, and project engagements.
-            </p>
+          <div class="form-group">
+            <label for="email">Your Email *</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com" />
           </div>
-
-          <div class="contact-item">
-            <h3>📍 Based in Cork</h3>
-            <p>
-              Based in Carrigtwohill, Cork. Available for remote work anywhere
-              and on-site across Munster.
-            </p>
+          <div class="form-group">
+            <label for="business">Company / Organisation</label>
+            <input type="text" id="business" name="business" placeholder="Your company or organisation" />
           </div>
-        </div>
-
-        <div class="contact-form-wrapper">
-          <form
-            class="contact-form"
-            action="https://formspree.io/f/mvzbggar"
-            method="POST"
-          >
-            <div class="form-group">
-              <label for="name">Your Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="John Smith"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Your Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="john@example.com"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="business">Company / Organisation</label>
-              <input
-                type="text"
-                id="business"
-                name="business"
-                placeholder="Your company or organisation"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="service">What’s the enquiry about? *</label>
-              <select id="service" name="service" required>
-                <option value="">Select an option...</option>
-                <option value="Employment opportunity">Employment opportunity</option>
-                <option value="Contract / freelance project">Contract / freelance project</option>
-                <option value="Full-stack development work">Full-stack development work</option>
-                <option value="Data analysis / reporting">Data analysis / reporting</option>
-                <option value="General enquiry">General enquiry</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Tell me more *</label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows="5"
-                placeholder="Tell me about the role, project, or opportunity..."
-              ></textarea>
-              <p class="form-helper">
-                If you’re not sure where to start, just give me an overview and we’ll go from there.
-              </p>
-            </div>
-
-            <button type="submit" class="submit-btn">Send Message 🚀</button>
-          </form>
-        </div>
+          <div class="form-group">
+            <label for="service">What's the enquiry about? *</label>
+            <select id="service" name="service" required>
+              <option value="">Select an option...</option>
+              <option value="Employment opportunity">Employment opportunity</option>
+              <option value="Contract / freelance project">Contract / freelance project</option>
+              <option value="Full-stack development work">Full-stack development work</option>
+              <option value="Data analysis / reporting">Data analysis / reporting</option>
+              <option value="General enquiry">General enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell me more *</label>
+            <textarea id="message" name="message" required rows="4" placeholder="Tell me about the role, project, or opportunity..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message →</button>
+        </form>
       </div>
     </div>
   </section>
-</main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="foot-brand">Aidan<span class="foot-brand-dot">.</span></div>
+    <div class="foot-social">
+      <a class="foot-social-link" href="https://www.linkedin.com/in/aidan-dennehy-bsc-msc-cork" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="foot-social-link" href="https://github.com/duinneacha" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+    <div class="foot-note">© 2025 Aidan Dennehy · Carrigtwohill, Cork</div>
+  </footer>
+
+</div>
 
 <style>
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(17, 24, 39, 0.9);
-    backdrop-filter: saturate(180%) blur(10px);
-    border-bottom: 1px solid var(--border-color);
-    height: var(--header-height);
+  .page-wrap { position: relative; z-index: 1; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    scroll-margin-top: var(--header-height);
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 64px 0;
+  }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red-dim);
+    border: 1px solid var(--red-border);
+    color: var(--red);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 7px 16px;
+    border-radius: 4px;
+    margin-bottom: 44px;
+  }
+  .kicker-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+    animation: blink 2.4s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  .headline-block { line-height: 0.92; margin-bottom: 0; }
+  .h-line {
+    display: block;
+    font-size: clamp(3.8rem, 8.5vw, 8.2rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+  }
+  .h-solid { color: var(--ink); }
+  .h-red   { color: var(--red); }
+  .h-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(245,240,235,0.18);
+  }
+  @media (prefers-color-scheme: light) {
+    .h-outline { -webkit-text-stroke: 2px rgba(13,8,6,0.18); }
+  }
+
+  .hero-divider {
     display: flex;
     align-items: center;
+    gap: 24px;
+    margin: 48px 0;
+  }
+  .hdl { flex: 1; height: 1px; background: var(--ink-rule); }
+  .hdl-left  { background: linear-gradient(270deg, var(--ink-rule), transparent); }
+  .hdl-right { background: linear-gradient(90deg, var(--ink-rule), transparent); }
+  .hdt {
+    color: var(--ink-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
   }
 
-  :global(.light-theme) .nav {
-    background: rgba(255, 255, 255, 0.9);
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: end;
+    padding-bottom: 0;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-dim);
+    line-height: 1.75;
+    max-width: 500px;
+  }
+  .hero-ctas { display: flex; flex-direction: column; gap: 12px; }
+  .cta-primary {
+    display: block;
+    background: var(--red);
+    color: #fff;
+    padding: 17px 44px;
+    font-weight: 900;
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .cta-primary:hover { filter: brightness(1.1); letter-spacing: 0.13em; }
+  .cta-secondary {
+    display: block;
+    background: transparent;
+    color: var(--ink-dim);
+    padding: 17px 44px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--ink-rule);
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .cta-secondary:hover { border-color: var(--ink-muted); color: var(--ink); }
+
+  /* ─── FACT STRIP ─── */
+  .fact-strip {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--ink-rule);
+    margin-top: 64px;
+  }
+  .fact {
+    padding: 40px 48px;
+    border-right: 1px solid var(--ink-rule);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .fact:last-child { border-right: none; }
+  .fact::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--red);
+    transition: width 0.35s ease;
+  }
+  .fact:hover { background: var(--red-dim); }
+  .fact:hover::after { width: 100%; }
+  .fact-big {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .fact-big em { font-style: normal; color: var(--red); }
+  .fact-small {
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    width: 100%;
+  /* ─── PROCESS ─── */
+  .process-section { padding: 0 !important; }
+  .process-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 56px 64px 48px;
+    border-bottom: 1px solid var(--ink-rule);
+    gap: 40px;
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .process-item {
+    padding: 44px 32px;
+    border-right: 1px solid var(--ink-rule);
+    transition: background 0.2s;
+  }
+  .process-item:last-child { border-right: none; }
+  .process-item:hover { background: var(--red-dim); }
+  .process-item:hover .p-accent { width: 36px; }
+  .p-num {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: var(--ink-faint);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .p-accent {
+    width: 18px; height: 3px;
+    background: var(--red);
+    margin-bottom: 20px;
+    transition: width 0.3s ease;
+  }
+  .p-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .p-desc {
+    font-size: 0.82rem;
+    color: var(--ink-dim);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ─── SKILLS STRIP ─── */
+  .skills-strip {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--ink-rule);
+    padding: 28px 64px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .skills-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .skills-divider { width: 1px; height: 20px; background: var(--ink-rule); }
+  .skills-list { display: flex; gap: 8px; flex-wrap: wrap; }
+  .skill-tag {
+    background: var(--ink-faint);
+    border: 1px solid var(--ink-rule);
+    color: var(--ink-dim);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    transition: all 0.18s;
+  }
+  .skill-tag:hover { background: var(--red-dim); border-color: var(--red-border); color: var(--red); }
+  .skill-ai {
+    background: rgba(255,59,92,0.06);
+    border-color: rgba(255,59,92,0.2);
+    color: rgba(245,240,235,0.65);
+  }
+  @media (prefers-color-scheme: light) {
+    .skill-ai { color: rgba(13,8,6,0.65); }
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .contact-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    line-height: 1.0;
+    margin-bottom: 20px;
+  }
+  .contact-title em { font-style: normal; color: var(--red); }
+  .contact-sub {
+    font-size: 1rem;
+    color: var(--ink-dim);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 400px;
+  }
+  .contact-links { display: flex; gap: 12px; margin-bottom: 24px; }
+  .contact-social {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--ink-dim);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 9px 16px;
+    border: 1px solid var(--ink-rule);
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .contact-social:hover { color: var(--red); border-color: var(--red-border); background: var(--red-dim); }
+  .privacy-note {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+  .privacy-note a { color: var(--red); text-decoration: none; }
+  .privacy-note a:hover { text-decoration: underline; }
+
+  /* Contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 11px 14px;
+    border: 1px solid var(--ink-rule);
+    border-radius: 4px;
+    background: var(--ink-faint);
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--red);
+    background: var(--red-dim);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--ink-muted); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group select option { background: #111; color: #f5f0eb; }
+  .submit-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-weight: 900;
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+  .submit-btn:hover { filter: brightness(1.1); letter-spacing: 0.13em; }
+
+  /* ─── FOOTER ─── */
+  .site-footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--ink-rule);
+    padding: 28px 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .theme-toggle {
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 8px;
-    cursor: pointer;
-    color: var(--text-primary);
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .theme-toggle:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-color);
-  }
-
-  .theme-toggle:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
-
-  .brand {
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logo {
-    height: 40px;
-    width: auto;
-    transition: opacity 0.3s ease;
-  }
-
-  .links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    padding: 6px 8px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-  }
-
-  .links a:hover,
-  .links a:focus {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-  }
-
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
-  }
-
-  :global(html) {
-    scroll-behavior: smooth;
-  }
-
-  .section {
-    padding: 48px 0;
-    scroll-margin-top: calc(var(--header-height) + 16px);
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .hero-section {
-    background: linear-gradient(
-      135deg,
-      var(--bg-primary) 0%,
-      var(--bg-secondary) 100%
-    );
-    border-bottom: 2px solid var(--accent-color);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(
-      45deg,
-      transparent 30%,
-      rgba(59, 130, 246, 0.05) 100%
-    );
-    pointer-events: none;
-  }
-
-  .hero {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .cta-button {
-    display: inline-block;
-    background: linear-gradient(
-      135deg,
-      var(--accent-color) 0%,
-      var(--accent-hover) 100%
-    );
-    color: white;
-    padding: 16px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .cta-button.secondary {
-    background: transparent;
-    border: 2px solid var(--accent-color);
-    color: var(--accent-color);
-    box-shadow: none;
-  }
-
-  .cta-button.secondary:hover {
-    background: var(--bg-secondary);
-    box-shadow: none;
-  }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
-  }
-
-  .hero-logo {
-    height: 120px;
-    width: auto;
-    margin-bottom: 16px;
-    transition: opacity 0.3s ease;
-  }
-
-  .hero-subtitle-text {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    margin: 8px 0 16px;
-  }
-
-  .content-block {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-size: 2.2rem;
-    text-align: center;
-    margin: 0 0 16px;
-    color: var(--text-primary);
-    font-weight: 700;
-  }
-
-  .section-intro {
-    text-align: center;
-    color: var(--text-secondary);
-    margin: 0 auto 32px;
-    max-width: 720px;
-    line-height: 1.6;
-  }
-
-  .process-grid {
-    display: flex;
-    gap: 0;
-    align-items: flex-start;
-  }
-
-  .process-card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 12px 20px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    overflow: visible;
-    min-height: unset;
-    position: relative;
-  }
-
-  /* Connector line: runs from right edge of this step circle to left edge of next */
-  .process-card:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 16px;
-    left: calc(50% + 16px);
-    width: calc(100% - 32px);
-    height: 2px;
-    background: var(--border-color);
-    z-index: 0;
-  }
-
-  .process-card h3 {
-    margin: 0 0 8px;
-    font-size: 1.1rem;
-    color: var(--text-primary);
-  }
-
-  .process-card p {
-    margin: 0;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-
-  .process-step {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 16px;
-    font-size: 0.9rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .benefit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    max-width: 720px;
-    margin: 0 auto 24px;
-  }
-
-  .benefit-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 20px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 8px;
-  }
-
-  .benefit-icon {
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  .benefit-card p {
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.4;
-  }
-
-  .credibility-line {
-    text-align: center;
-    color: var(--text-secondary);
-    margin: 0 auto;
-    max-width: 600px;
-    line-height: 1.6;
-  }
-
-  /* Contact Section Styles */
-  .contact-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .contact-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
-  .contact-title {
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    margin: 0 0 16px;
-    font-weight: 700;
-  }
-
-  .contact-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .contact-item h3 {
-    font-size: 1.3rem;
-    color: var(--accent-color);
-    margin: 0 0 8px;
-    font-weight: 600;
-  }
-
-  .contact-item p {
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  .contact-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.2s ease;
-  }
-
-  .contact-link:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
-  }
-
-  .contact-form-wrapper {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .form-group label {
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 12px 16px;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    font-size: 1rem;
-    transition: border-color 0.2s ease;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: var(--text-muted);
-  }
-
-  .form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-    font-family: inherit;
-  }
-
-  .form-helper {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin: 8px 0 0;
-  }
-
-  .submit-btn {
-    background: linear-gradient(
-      135deg,
-      var(--accent-color) 0%,
-      var(--accent-hover) 100%
-    );
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-    margin-top: 8px;
-  }
-
-  .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
-  }
-
-  .submit-btn:active {
-    transform: translateY(0);
-  }
-
-  .section:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  h1 {
-    margin: 0 0 8px;
-    font-size: 2rem;
-  }
-
-  h2 {
-    margin: 0 0 12px;
-    font-size: 1.5rem;
-  }
-
-  /* Hamburger — hidden on desktop */
-  .hamburger {
-    display: none;
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 0;
-    cursor: pointer;
-    color: var(--text-primary);
-    width: 36px;
-    height: 36px;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-  }
-
-  .hamburger:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-color);
-  }
-
-  .hamburger:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
-
-  /* Mobile dropdown — hidden on desktop */
-  .mobile-menu {
-    display: none;
-  }
-
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .nav {
-      flex-direction: column;
-      align-items: stretch;
-      height: auto;
-    }
-
-    .nav .container {
-      height: var(--header-height);
-      padding: 0 16px;
-    }
-
-    .nav-right {
-      gap: 8px;
-    }
-
-    .links {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .mobile-menu {
-      display: block;
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-color);
-    }
-
-    .mobile-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 8px 0 12px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-menu a {
-      display: block;
-      padding: 12px 20px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background-color 0.15s ease, color 0.15s ease;
-      border-left: 3px solid transparent;
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a:focus {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border-left-color: var(--accent-color);
-      outline: none;
-    }
-
-    .hero-title {
-      font-size: 2.2rem;
-      line-height: 1.2;
-    }
-
-    .hero-logo {
-      height: 80px;
-    }
-
-    .hero-subtitle-text {
-      font-size: 1rem;
-    }
-
-    .cta-button {
-      width: 100%;
-      text-align: center;
-      padding: 14px 24px;
-    }
-
-    .hero-actions {
-      width: 100%;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      line-height: 1.3;
-      padding-top: 4px;
-    }
-
-    .section {
-      scroll-margin-top: 140px;
-    }
-
-    main {
-      padding: 16px 8px 60px;
-    }
-
-    .section {
-      padding: 32px 0;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-    }
-
-    .contact-content {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-
-    .contact-title {
-      font-size: 2rem;
-    }
-
-    .contact-form-wrapper {
-      padding: 24px;
-    }
-
-    .contact-info {
-      order: 2;
-    }
-
-    .contact-form-wrapper {
-      order: 1;
-    }
-
-    /* Timeline → vertical card stack on mobile */
-    .process-grid {
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .process-card {
-      padding: 16px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      text-align: left;
-      align-items: flex-start;
-    }
-
-    .process-card::after {
-      display: none;
-    }
-
-    .process-step {
-      margin-bottom: 12px;
-    }
-
-  }
-
-  @media (max-width: 480px) {
-    .hero-title {
-      font-size: 1.8rem;
-    }
-
-    .benefit-grid {
-      grid-template-columns: 1fr;
-    }
-
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .hero-inner { padding: 60px 40px 0; }
+    .process-header { padding: 48px 40px 40px; }
+    .process-item { padding: 36px 24px; }
+    .skills-strip { padding: 24px 40px; }
+    .fact { padding: 32px 32px; }
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner { padding: 48px 24px 0; }
+    .hero-bottom { grid-template-columns: 1fr; gap: 28px; }
+    .hero-ctas { flex-direction: row; flex-wrap: wrap; }
+    .cta-primary, .cta-secondary { flex: 1; min-width: 160px; }
+    .hdt { font-size: 0.62rem; }
+    .fact-strip { grid-template-columns: 1fr 1fr; }
+    .fact:nth-child(2) { border-right: none; }
+    .fact:nth-child(3), .fact:nth-child(4) { border-top: 1px solid var(--ink-rule); }
+    .fact:nth-child(4) { border-right: none; }
+    .process-header { flex-direction: column; padding: 40px 24px 32px; gap: 12px; }
+    .process-grid { grid-template-columns: 1fr; }
+    .process-item { border-right: none; border-bottom: 1px solid var(--ink-rule); padding: 28px 24px; }
+    .process-item:last-child { border-bottom: none; }
+    .skills-strip { padding: 20px 24px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .site-footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .h-line { font-size: clamp(2.8rem, 14vw, 5rem); }
+    .hero-divider { flex-direction: column; gap: 12px; }
+    .hdl { display: none; }
+    .hdt { white-space: normal; text-align: center; }
+    .fact-strip { grid-template-columns: 1fr 1fr; }
+    .fact { padding: 24px 20px; }
+    .fact-big { font-size: 2.2rem; }
   }
 </style>

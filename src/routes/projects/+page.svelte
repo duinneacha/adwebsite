@@ -1,562 +1,161 @@
-<script>
-  import { onMount } from "svelte";
-
-  let isDark = true;
-  let mounted = false;
-
-  onMount(() => {
-    mounted = true;
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      isDark = savedTheme === "dark";
-    } else {
-      isDark = true;
-      localStorage.setItem("theme", "dark");
-    }
-    updateTheme();
-    /** @param {MouseEvent} e */
-    function handleClickOutside(e) {
-      if (e.target instanceof Element && !e.target.closest('.nav')) menuOpen = false;
-    }
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  });
-
-  if (typeof window !== "undefined") {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      isDark = savedTheme === "dark";
-    }
-  }
-
-  function toggleTheme() {
-    if (!mounted) return;
-    isDark = !isDark;
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    updateTheme();
-  }
-
-  function updateTheme() {
-    if (typeof document !== "undefined" && document.documentElement) {
-      const htmlElement = document.documentElement;
-      htmlElement.classList.remove("light-theme", "dark-theme");
-      if (isDark) {
-        htmlElement.classList.add("dark-theme");
-      } else {
-        htmlElement.classList.add("light-theme");
-      }
-    }
-  }
-
-  $: logoPath = isDark ? "/adlogo-dark.png" : "/adlogo-light.png";
-  $: logoWebpPath = isDark ? "/adlogo-dark.webp" : "/adlogo-light.webp";
-
-  let menuOpen = false;
-  function toggleMenu() { menuOpen = !menuOpen; }
-</script>
-
 <svelte:head>
   <title>Projects | Aidan Dennehy — Full-Stack Developer & Data Analyst</title>
-  <meta
-    name="description"
-    content="Selected projects including data analysis tools and heritage websites. Explore case studies and live work by Aidan Dennehy."
-  />
+  <meta name="description" content="Selected projects including data analysis tools and heritage websites. Explore case studies and live work by Aidan Dennehy." />
   <link rel="canonical" href="https://www.aidandennehy.ie/projects" />
 </svelte:head>
 
-<nav class="nav">
-  <div class="container">
-    <div class="brand">
-      <picture>
-        <source srcset={logoWebpPath} type="image/webp" />
-        <img src={logoPath} alt="AD Logo" class="logo" />
-      </picture>
-      <span>AD</span>
+<div class="page-wrap">
+
+  <header class="page-header">
+    <div class="header-inner">
+      <div class="page-eyebrow">✦ Projects</div>
+      <h1 class="page-title">Selected<br /><em>work.</em></h1>
+      <p class="page-sub">Client and community work across data analysis, local SEO, and heritage preservation.</p>
     </div>
-    <div class="nav-right">
-      <ul class="links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
-      <button
-        class="theme-toggle"
-        on:click={toggleTheme}
-        aria-label="Toggle theme"
-      >
-        {#if isDark}
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="12" r="5" />
-            <path
-              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-            />
-          </svg>
-        {:else}
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        {/if}
-        <span style="font-size: 12px; margin-left: 4px;"
-          >{isDark ? "Dark" : "Light"}</span
-        >
-      </button>
-      <button
-        class="hamburger"
-        on:click={toggleMenu}
-        aria-label="Toggle navigation"
-        aria-expanded={menuOpen}
-      >
-        {#if menuOpen}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        {:else}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        {/if}
-      </button>
-    </div>
-  </div>
-  {#if menuOpen}
-    <div class="mobile-menu">
-      <ul>
-        <li><a href="/" on:click={() => menuOpen = false}>Home</a></li>
-        <li><a href="/about" on:click={() => menuOpen = false}>About</a></li>
-        <li><a href="/services" on:click={() => menuOpen = false}>Services</a></li>
-        <li><a href="/projects" on:click={() => menuOpen = false}>Projects</a></li>
-        <li><a href="/#contact" on:click={() => menuOpen = false}>Contact</a></li>
-      </ul>
-    </div>
-  {/if}
-</nav>
+  </header>
 
-<main>
-  <section class="section">
-    <h1 class="projects-title">Projects</h1>
-    <p class="projects-subtitle">
-      A selection of client and community work across local SEO, data analysis,
-      and heritage preservation.
-    </p>
+  <section class="site-section">
+    <div class="section-inner">
+      <div class="projects-grid">
 
-    <div class="projects-grid">
-      <div class="project-card">
-        <h2>AP Duplicate Payment Detection</h2>
-        <p class="project-subtitle">Client-Side Data Analysis</p>
-        <p class="project-description">
-          Client-side tool for identifying potential duplicate payments in AP
-          data using explainable audit rules. Files are processed locally for
-          privacy.
-        </p>
-        <div class="project-links">
-          <a
-            href="/projects/ap-duplicate-payment-detector"
-            class="project-link"
-          >
-            View Project
-          </a>
+        <div class="project-card">
+          <div class="project-meta">
+            <div class="project-num">01</div>
+            <span class="project-type">Client-Side Data Analysis</span>
+          </div>
+          <div class="project-accent"></div>
+          <h2 class="project-title">AP Duplicate Payment Detection</h2>
+          <p class="project-desc">
+            Client-side tool for identifying potential duplicate payments in AP data using explainable audit rules. Files are processed locally for privacy — nothing leaves the browser.
+          </p>
+          <div class="project-links">
+            <a href="/projects/ap-duplicate-payment-detector" class="project-link project-link-primary">View Project →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="project-card">
-        <div class="project-image">
-          <picture>
-            <source srcset="/templecurraheen-pic.webp" type="image/webp" />
-            <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
-          </picture>
+        <div class="project-card project-card-image">
+          <div class="project-img-wrap">
+            <picture>
+              <source srcset="/templecurraheen-pic.webp" type="image/webp" />
+              <img src="/templecurraheen-pic.jpg" alt="Templecurraheen Graveyard" />
+            </picture>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <div class="project-num">02</div>
+              <span class="project-type">Digital Heritage Documentation</span>
+            </div>
+            <div class="project-accent"></div>
+            <h2 class="project-title">Templecurraheen Graveyard</h2>
+            <p class="project-desc">
+              A comprehensive digital archive documenting the historic Templecurraheen Graveyard in Carrigtwohill, Co. Cork. Burial records, historical photographs, genealogical resources, interactive maps, and a complete searchable archive.
+            </p>
+            <div class="project-links">
+              <a href="https://duinneacha.github.io/templecurraheen-website/" target="_blank" rel="noopener noreferrer" class="project-link project-link-primary">View Live Site →</a>
+              <a href="https://github.com/duinneacha/templecurraheen-website" target="_blank" rel="noopener noreferrer" class="project-link project-link-ghost">GitHub</a>
+            </div>
+          </div>
         </div>
-        <h2>Templecurraheen Graveyard Website</h2>
-        <p class="project-subtitle">Digital Heritage Documentation Project</p>
-        <p class="project-description">
-          A comprehensive digital archive documenting the historic
-          Templecurraheen Graveyard in Carrigtwohill, Co. Cork. This project
-          preserves centuries of local history through burial records,
-          historical photographs, and genealogical resources. Features
-          interactive maps, searchable burial lists, and a complete historical
-          archive accessible to researchers, family members, and the local
-          community.
-        </p>
-        <div class="project-links">
-          <a
-            href="https://duinneacha.github.io/templecurraheen-website/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-          >
-            View Live Site
-          </a>
-          <a
-            href="https://github.com/duinneacha/templecurraheen-website"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-          >
-            View on GitHub
-          </a>
-        </div>
-      </div>
 
-      <div class="project-card">
-        <div class="project-image">
-          <picture>
-            <source srcset="/ballinacurra-pic.webp" type="image/webp" />
-            <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
-          </picture>
+        <div class="project-card project-card-image">
+          <div class="project-img-wrap">
+            <picture>
+              <source srcset="/ballinacurra-pic.webp" type="image/webp" />
+              <img src="/ballinacurra-pic.jpeg" alt="Old Ballinacurra Graveyard" />
+            </picture>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <div class="project-num">03</div>
+              <span class="project-type">Community Heritage Memorial</span>
+            </div>
+            <div class="project-accent"></div>
+            <h2 class="project-title">Old Ballinacurra Graveyard</h2>
+            <p class="project-desc">
+              A dedicated memorial website for Old Ballinacurra Graveyard, featuring comprehensive grave records, historical features, and community stories. Honours the memory of Frankie Devlin and connects families with their ancestral history.
+            </p>
+            <div class="project-links">
+              <a href="https://www.ballinacurragraveyard.ie/" target="_blank" rel="noopener noreferrer" class="project-link project-link-primary">View Live Site →</a>
+            </div>
+          </div>
         </div>
-        <h2>Old Ballinacurra Graveyard Website</h2>
-        <p class="project-subtitle">Community Heritage Memorial Site</p>
-        <p class="project-description">
-          A dedicated memorial website for Old Ballinacurra Graveyard, featuring
-          comprehensive grave records, historical features, and community
-          stories. This project honors the memory of Frankie Devlin and
-          preserves the heritage of Ballinacurra through digital documentation.
-          Includes interactive grave listings, historical features, and
-          community dedication pages that connect families with their ancestral
-          history.
-        </p>
-        <div class="project-links">
-          <a
-            href="https://www.ballinacurragraveyard.ie/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-          >
-            View Live Site
-          </a>
-        </div>
+
       </div>
     </div>
   </section>
-</main>
+
+  <footer class="site-footer">
+    <div class="foot-brand">Aidan<span class="foot-brand-dot">.</span></div>
+    <div class="foot-social">
+      <a class="foot-social-link" href="https://www.linkedin.com/in/aidan-dennehy-bsc-msc-cork" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="foot-social-link" href="https://github.com/duinneacha" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-note">© 2025 Aidan Dennehy · Carrigtwohill, Cork</div>
+  </footer>
+
+</div>
 
 <style>
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(17, 24, 39, 0.9);
-    backdrop-filter: saturate(180%) blur(10px);
-    border-bottom: 1px solid var(--border-color);
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-  }
+  .page-wrap { position: relative; z-index: 1; }
 
-  :global(.light-theme) .nav {
-    background: rgba(255, 255, 255, 0.9);
-  }
+  .header-inner { max-width: 1200px; margin: 0 auto; padding: 72px 64px 56px; }
+  .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); font-weight: 800; margin-bottom: 20px; }
+  .page-title { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.92; color: var(--ink); margin-bottom: 20px; }
+  .page-title em { font-style: normal; color: var(--red); }
+  .page-sub { font-size: 1rem; color: var(--ink-dim); max-width: 460px; line-height: 1.7; }
+  .page-header { border-bottom: 1px solid var(--ink-rule); }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .theme-toggle {
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 8px;
-    cursor: pointer;
-    color: var(--text-primary);
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .theme-toggle:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-color);
-  }
-
-  .theme-toggle:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
-
-  .brand {
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logo {
-    height: 40px;
-    width: auto;
-    transition: opacity 0.3s ease;
-  }
-
-  .links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    padding: 6px 8px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-  }
-
-  .links a:hover,
-  .links a:focus {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-  }
-
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
-  }
-
-  .section {
-    padding: 48px 0;
-  }
-
-  .projects-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-    font-weight: 700;
-  }
-
-  .projects-subtitle {
-    text-align: center;
-    color: var(--text-secondary);
-    margin: 0 auto 40px;
-    max-width: 720px;
-    line-height: 1.6;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    margin-top: 32px;
-  }
+  .projects-grid { display: flex; flex-direction: column; gap: 1px; }
 
   .project-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .project-image {
-    margin: -24px -24px 20px -24px;
-    border-radius: 12px 12px 0 0;
+    border: 1px solid var(--ink-rule);
+    padding: 44px 48px;
+    position: relative;
     overflow: hidden;
-    height: 200px;
+    transition: background 0.2s;
   }
+  .project-card:hover { background: var(--red-dim); }
+  .project-card:hover .project-accent { width: 48px; }
 
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
+  .project-card-image { padding: 0; display: grid; grid-template-columns: 320px 1fr; }
+  .project-card-image:hover { background: none; }
+  .project-img-wrap { overflow: hidden; }
+  .project-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .project-card-image:hover .project-img-wrap img { transform: scale(1.04); }
+  .project-content { padding: 44px 48px; transition: background 0.2s; }
+  .project-card-image:hover .project-content { background: var(--red-dim); }
+  .project-card-image:hover .project-content .project-accent { width: 48px; }
 
-  .project-card:hover .project-image img {
-    transform: scale(1.05);
-  }
-
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .project-card h2 {
-    margin: 0 0 8px;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-  }
-
-  .project-subtitle {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin: 0 0 16px;
-  }
-
-  .project-description {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0 0 20px;
-  }
-
-  .project-links {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
+  .project-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .project-num { font-size: 2.8rem; font-weight: 900; color: var(--ink-faint); letter-spacing: -0.05em; line-height: 1; }
+  .project-type { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); font-weight: 800; }
+  .project-accent { width: 18px; height: 3px; background: var(--red); margin-bottom: 16px; transition: width 0.3s; }
+  .project-title { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 14px; }
+  .project-desc { font-size: 0.88rem; color: var(--ink-dim); line-height: 1.7; margin-bottom: 24px; }
+  .project-links { display: flex; gap: 12px; flex-wrap: wrap; }
   .project-link {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--accent-color);
-    color: white;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
+    padding: 9px 20px;
+    border-radius: 3px;
+    transition: all 0.2s;
   }
+  .project-link-primary { background: var(--red); color: #fff; }
+  .project-link-primary:hover { filter: brightness(1.1); }
+  .project-link-ghost { background: transparent; color: var(--ink-dim); border: 1px solid var(--ink-rule); }
+  .project-link-ghost:hover { border-color: var(--ink-muted); color: var(--ink); }
 
-  .project-link:hover {
-    background: var(--accent-hover);
+  @media (max-width: 1024px) {
+    .header-inner { padding: 56px 40px 44px; }
   }
-
-  /* Hamburger — hidden on desktop */
-  .hamburger {
-    display: none;
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 0;
-    cursor: pointer;
-    color: var(--text-primary);
-    width: 36px;
-    height: 36px;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-  }
-
-  .hamburger:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-color);
-  }
-
-  .hamburger:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-  }
-
-  /* Mobile dropdown — hidden on desktop */
-  .mobile-menu {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .nav {
-      flex-direction: column;
-      align-items: stretch;
-      height: auto;
-    }
-
-    .nav .container {
-      height: var(--header-height);
-      padding: 0 16px;
-    }
-
-    .nav-right {
-      gap: 8px;
-    }
-
-    .links {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .mobile-menu {
-      display: block;
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-color);
-    }
-
-    .mobile-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 8px 0 12px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-menu a {
-      display: block;
-      padding: 12px 20px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background-color 0.15s ease, color 0.15s ease;
-      border-left: 3px solid transparent;
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a:focus {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border-left-color: var(--accent-color);
-      outline: none;
-    }
-
-    main {
-      padding: 16px 8px 60px;
-    }
-
-    .section {
-      padding: 32px 0;
-    }
-
-    .projects-title {
-      font-size: 2rem;
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 0 8px;
-    }
-
-    .project-card {
-      padding: 20px;
-    }
-
-    .project-image {
-      margin: -20px -20px 16px -20px;
-      height: 160px;
-    }
+  @media (max-width: 900px) {
+    .header-inner { padding: 48px 24px 36px; }
+    .project-card { padding: 32px 24px; }
+    .project-card-image { grid-template-columns: 1fr; }
+    .project-img-wrap { height: 200px; }
+    .project-content { padding: 28px 24px; }
   }
 </style>
